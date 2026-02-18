@@ -1,41 +1,42 @@
-:root {
-  /* Colors */
-  --primary-color: #2563eb;
-  --secondary-color: #64748b;
-  --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  --text-color: #1e293b;
-  --error: #ef4444;
-
-  /* Typography */
-  --font-main: 'Inter', system-ui, sans-serif;
-  --font-size-base: 16px;
-
-  /* Spacing Scale - Use for both padding/maring */
-  --space-xs: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 2rem;
-}
-
-/* Global Reset */
-
+/* =========================
+   Reset
+========================= */
+/* Reset */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  /* ✅ Affects ALL elements */
+  margin: 0;
+  /* ✅ Removes default margins */
+  padding: 0;
+  /* ✅ Removes default padding */
 }
 
-/* Body */
+/* =========================
+   Body
+========================= */
 
 body {
-  font-family: var(--font-main);
-  font-size: var(--font-size-base);
-  color: var(--text-color);
-  background: var(--bg-gradient);
+  font-family: 'Inter', system-ui, sans-serif;
+  /* ✅ Inherited */
+  font-size: 16px;
+  /* ✅ Inherited */
+  line-height: 24px;
+  /* ✅ Inherited */
+  color: #1e293b;
+  /* ✅ Inherited */
+
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  /* ❌ Not inherited */
   min-height: 100vh;
+  /* ❌ Not inherited */
+
   display: flex;
+  /* ⚠ Affects ONLY direct children */
   align-items: center;
+  /* ⚠ Centers vertically */
   justify-content: center;
-  line-height: 1.5;
+  /* ⚠ Centers horizontally */
   -webkit-font-smoothing: antialiased;
-  border: solid 2px red;
+
+  border: 2px solid red;
 }
