@@ -15,7 +15,7 @@ Reason:
 
 Day 1 (16-02-26) - Morning - 2.5 hours - Initial setup
 Day 2 (17-02-26) - Morning - 3 hours - Phase 2 complete 
-Day 3 (18-02-26) - 
+Day 3 (18-02-26) - Morning - 2 hours - Stylings fixes
 Day 4 (19-02-26) - 
 Day 5 (20-02-26) - 
 Day 6 (21-02-26) - 
