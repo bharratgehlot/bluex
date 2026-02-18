@@ -1,27 +1,41 @@
+:root {
+  /* Colors */
+  --primary-color: #2563eb;
+  --secondary-color: #64748b;
+  --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --text-color: #1e293b;
+  --error: #ef4444;
+
+  /* Typography */
+  --font-main: 'Inter', system-ui, sans-serif;
+  --font-size-base: 16px;
+
+  /* Spacing Scale - Use for both padding/maring */
+  --space-xs: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+}
+
+/* Global Reset */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Body */
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  background: var(--bg-gradient);
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-button {
-  margin-top: 30px;
-  color:white;
-  background-color: rgba(0, 0, 0, 0.555);
-  cursor: pointer;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-}
-
-button:hover{
-  background-color: black;
-  transition-duration: 30ms;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  border: solid 2px red;
 }

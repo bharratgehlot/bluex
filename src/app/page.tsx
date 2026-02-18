@@ -1,6 +1,15 @@
+/**
+ * This page owns - navigation, high level flow control and review.
+ * This page do not handle file parsing, upload limit logic and pdf validation
+ * This page acts as orchestrator
+ */
+
+
 "use client";
 
+import ResumeUpload from "@/components/upload/ResumeUpload";
 import { useState } from "react";
+import { canUpload, incrementUpload } from "@/lib/storage/uploadLimit";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -27,13 +36,34 @@ export default function Home() {
     }
   };
 
+  function handleValidFile(file: File){
+    setError(null);
+
+    /** Upload limit check */
+
+    if (!canUpload()) {
+      setError("Daily upload limit reached (3 per day")
+      return
+    }
+
+    /** Increment only after allowed */
+
+    incrementUpload();
+
+    console.log("File approved for processing:", file.name);
+
+    /** Phase 3: extraction will go here */
+
+  }
+
   return (
     <main style={{ padding: "20px" }}>
-      <h1>BlueX MVP</h1>
-
-      <button onClick={testAPI} disabled={loading}>
+      {/* <h1>BlueX MVP</h1>
+     <button onClick={testAPI} disabled={loading}>
         {loading ? "Loading..." : "Test API"}
       </button>
+ */}
+      
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
@@ -48,6 +78,9 @@ export default function Home() {
           {response}
         </pre>
       )}
+
+      <ResumeUpload onValidFile={handleValidFile}/>
     </main>
+    
   );
 }
