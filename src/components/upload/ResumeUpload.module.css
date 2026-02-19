@@ -80,12 +80,22 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.submit_btn:hover {
+.submit_btn:not(:disabled):hover {
   background-color: #000000;
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.submit_btn:active {
+.submit_btn:not(:disabled):active {
   transform: translateY(0);
+}
+
+/* Disabled State */
+.submit_btn:disabled {
+  background-color: #cbd5e1;
+  color: #64748b;
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+  opacity: 0.7;
 }

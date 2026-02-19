@@ -1,8 +1,9 @@
 /**
  * src/components/upload/ResumeUpload.tsx
- * Owns - file selection, pdf validation, triggering extraction, limit check, passing cleaned data upward.
+ * Owns - file selection, pdf validation, triggering extraction, passing cleaned data upward.
  * We are going to send this file upword to root page using onValidfile
- * 
+ * Primary Job: Validate file, Store file locally (UI state), Show file name, Enable button
+ * Total 3 states
  */
 
 "use client"
@@ -17,29 +18,29 @@ interface ResumeUploadProps {
   onValidFile: (file: File) => void;
 }
 
-export default function ResumeUpload( {onValidFile}: ResumeUploadProps) {
-  const [fileName, setFileName] = useState<string | null>(null);
+/** Default function */
+
+export default function ResumeUpload({ onValidFile }: ResumeUploadProps) {
   const [error, setError] = useState<string | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
-    
-    if (!file) {
-      setError("Please select an file");
-      return
-    };
+
+    /* If user cancels → do nothing */
+    if (!file) return;
 
     if (file.type !== "application/pdf") {
       setError("Only PDF files are allowed")
-      setFileName(null);
+      setSelectedFile(null);
       e.target.value = "";
       return;
     }
 
-    if (file.size > 5 * 1024 * 1024 ) {
+    if (file.size > 5 * 1024 * 1024) {
       setError("File is too large (5 MB MAX)");
-      setFileName(null);
+      setSelectedFile(null);
       e.target.value = "";
       return;
     }
@@ -48,15 +49,21 @@ export default function ResumeUpload( {onValidFile}: ResumeUploadProps) {
     console.log("File: size", file.size);
     console.log("File: type", file.type);
 
+
     /* Clear errors */
 
     setError(null);
-    setFileName(file.name);
-    
-    /** Pass upward */
-    onValidFile(file);
+    setSelectedFile(file); // File metadata stored locally
 
   }
+
+  function handleSubmit() {
+    if (!selectedFile) return;
+
+    /** Pass upward when button clicks */
+    onValidFile(selectedFile);
+  }
+
 
   return (
 
@@ -70,10 +77,17 @@ export default function ResumeUpload( {onValidFile}: ResumeUploadProps) {
         onChange={handleFileChange}
       />
 
-      <button className={styles.submit_btn}>AUDIT MY RESUME</button>
+      <button
+        className={styles.submit_btn}
+        onClick={handleSubmit}
+        disabled={!selectedFile}
+      >AUDIT MY RESUME</button>
 
-      {fileName && (
-        <p className={styles.fileName}>Selected: {fileName}</p>
+
+      {selectedFile && (
+        <p className={styles.fileName}>
+          Selected: {selectedFile.name}
+        </p>
       )}
 
       {error && <p className={styles.error}>{error}</p>}

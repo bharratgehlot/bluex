@@ -13,11 +13,11 @@ Reason:
 
 ==================PROGRESS=====================
 
-Day 1 (16-02-26) - Morning - 2.5 hours - Initial setup
-Day 2 (17-02-26) - Morning - 3 hours - Phase 2 complete 
-Day 3 (18-02-26) - Morning - 2 hours - Stylings fixes
-Day 4 (19-02-26) - 
-Day 5 (20-02-26) - 
-Day 6 (21-02-26) - 
-Day 7 (22-02-26) - 
+1.  Day 1 (16-02-26) - Morning - 2.5 hours - Initial setup
+2.  Day 2 (17-02-26) - Morning - 3 hours - Phase 2 complete 
+3.  Day 2 (18-02-26) - Morning - 2 hours - Stylings fixes
+4.  Day 2 (19-02-26) - Morning - 2 hours - Phase 3 and 4
+5.  Day 2 (20-02-26) - 
+6.  Day 3 (21-02-26) - 
+7.  Day 3 (22-02-26) - 
 

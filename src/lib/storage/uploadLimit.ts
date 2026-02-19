@@ -1,6 +1,6 @@
 /**
  * Utility Function 
- * Purpose: Enforce soft upload limit (max 3).
+ * Purpose: Enforce soft upload limit (max 7).
  * Use localStorage for tracking (can be bypassed by user)
  * Reset Daily
  * Business Rule => Belongs in src/lib/
@@ -8,7 +8,7 @@
  * We do need submit button for sending resume for extraction and returning API value
  */
 
-const LIMIT = 3;
+const LIMIT = 7;
 const STORAGE_KEY = "dailyUploadData";
 
 interface UploadData {
@@ -20,7 +20,6 @@ interface UploadData {
 
 function getToday(): string {
   const date = new Date().toISOString().split("T")[0];
-  console.log("Today's date is ", date)
   return date;
 }
 
@@ -30,8 +29,6 @@ function getToday(): string {
 export function getStoredData(): UploadData | null {
   const stored = localStorage.getItem(STORAGE_KEY);
   if (!stored) return null;
-
-  console.log("Stored Data (raw): ", stored);
 
   /* Parse into JSON Object */
   try {
@@ -69,7 +66,7 @@ export function incrementUpload(): void {
 
   const updated: UploadData = {
     date: today,
-    count: data.count + 1,
+    count: (data.count ?? 0) + 1,
   }
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));

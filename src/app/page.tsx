@@ -2,6 +2,7 @@
  * This page owns - navigation, high level flow control and review.
  * This page do not handle file parsing, upload limit logic and pdf validation
  * This page acts as orchestrator
+ * src/page.tsx
  */
 
 
@@ -15,6 +16,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const testAPI = async () => {
     try {
@@ -42,9 +44,13 @@ export default function Home() {
     /** Upload limit check */
 
     if (!canUpload()) {
-      setError("Daily upload limit reached (3 per day")
-      return
+      setError("Daily upload limit reached (7 per day)")
+      return;
     }
+
+    /** Store file in page level state */
+
+    setSelectedFile(file);
 
     /** Increment only after allowed */
 
@@ -52,7 +58,8 @@ export default function Home() {
 
     console.log("File approved for processing:", file.name);
 
-    /** Phase 3: extraction will go here */
+
+    /** Phase 4: extraction will go here */
 
   }
 
@@ -63,7 +70,6 @@ export default function Home() {
         {loading ? "Loading..." : "Test API"}
       </button>
  */}
-      
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
@@ -80,6 +86,12 @@ export default function Home() {
       )}
 
       <ResumeUpload onValidFile={handleValidFile}/>
+
+      {selectedFile && (
+        <p style={{ marginTop: "10px", color: "green" }}>
+          Ready to process: {selectedFile.name}
+        </p>
+      )}
     </main>
     
   );
