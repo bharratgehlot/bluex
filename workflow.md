@@ -1,4 +1,22 @@
-🟢 Use: Gemini 2.5 Flash
+Based On Research we can use this three models (Easily swapable)
+
+🟢 Gemini 2.5 Flash (The Sweet Spot)
+
+PDF Support: Yes. It natively supports PDFs up to 50 MB and 1,000 pages.
+Free Tier Limits: 10 requests per minute (RPM) and 250 requests per day (RPD). 
+This gives you plenty of headroom well beyond your 20-30 daily requirement.
+
+🟢 Gemini 2.5 Flash-Lite (The High-Volume Option)
+
+Simple to config: It uses the exact same SDK and codebase as the standard Flash model, so there is no extra learning curve.
+PDF Support: Yes. It also supports PDFs up to 50 MB and 1,000 pages.
+Free Tier Limits: 15 requests per minute (RPM) and 1,000 requests per day (RPD). This is fantastic if your MVP suddenly gets a spike in traffic.
+
+🟢 Gemini 2.0 Flash (The Stable Fallback)
+
+Simple to config: Same seamless integration. It excels at taking a system instruction like "Return only valid JSON" and executing it consistently.
+PDF Support: Yes. It supports the same 50 MB and 1,000-page limits for PDFs.
+Free Tier Limits: 15 requests per minute (RPM) and 200 requests per day (RPD). Easily covers your MVP's daily target.
 
 Reason:
 
@@ -7,9 +25,17 @@ Reason:
 3. Better reasoning than Flash-Lite
 4. Pro is too limited (50/day is dangerous)
 
+How:
+
+Send PDF inline as base64 string directly in API request, force it to return json.
+
+
 1️⃣ Use one AI call per feature
 2️⃣ Add Basic Rate Protection (MVP Level)
 3️⃣ Keep Prompts Efficient
+
+Using pdfjs-dist for the pdf extraction
+pdfjs-dist v3.11.174
 
 ==================PROGRESS=====================
 
@@ -17,7 +43,7 @@ Reason:
 2.  Day 2 (17-02-26) - Morning - 3 hours - Phase 2 complete 
 3.  Day 2 (18-02-26) - Morning - 2 hours - Stylings fixes
 4.  Day 2 (19-02-26) - Morning - 2 hours - Phase 3 and 4
-5.  Day 2 (20-02-26) - 
+5.  Day 2 (20-02-26) - Morning - 2 hours - PDF Extraction
 6.  Day 3 (21-02-26) - 
 7.  Day 3 (22-02-26) - 
 

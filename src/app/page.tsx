@@ -12,6 +12,7 @@ import ResumeUpload from "@/components/upload/ResumeUpload";
 import { useState } from "react";
 import { canUpload, incrementUpload } from "@/lib/storage/uploadLimit";
 
+
 export default function Home() {
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState<string | null>(null);
@@ -38,7 +39,7 @@ export default function Home() {
     }
   };
 
-  function handleValidFile(file: File){
+  async function handleValidFile(file: File){
     setError(null);
 
     /** Upload limit check */
@@ -60,6 +61,8 @@ export default function Home() {
 
 
     /** Phase 4: extraction will go here */
+
+
 
   }
 

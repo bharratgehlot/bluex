@@ -12,6 +12,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
+          defer
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+      window.pdfjsWorkerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+    `,
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
