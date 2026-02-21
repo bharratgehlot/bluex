@@ -1,5 +1,5 @@
 /**
- * Uses Flash (10 RPM / ~250 RPD)
+ * Uses Gemini 2.5 Flash (10 RPM / ~250 RPD)
  * Safe for early MVP testing
  * Easy to swap later
  */
@@ -19,10 +19,41 @@ export class GeminiProvider implements AIProvider {
     )
   }
 
-  async generateReview(prompt: string): Promise<string> {
-    const result = await this.model.generateContent(prompt);
-    const response = await result.response;
+  async generateReview(base64Pdf: string): Promise<string> {
 
+    const result = await this.model.generateContent([
+      {
+        inlineData: {
+          mimeType: "application/pdf",
+          data: base64Pdf,
+        },
+      },
+      {
+        text: `
+  Analyze this resume and return STRICT JSON only.
+  
+  Return format:
+  
+  {
+    "overallScore": number,
+    "atsScore": number,
+    "impactScore": number,
+    "clarityScore": number,
+    "strengths": string[],
+    "weaknesses": string[],
+    "improvements": string[]
+  }
+  
+  No explanation.
+  No markdown.
+  Valid JSON only.
+  `
+      }
+    ]);
+
+    const response = await result.response;
     return response.text();
   }
+
+
 }

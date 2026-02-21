@@ -28,7 +28,7 @@ Reason:
 How:
 
 Send PDF inline as base64 string directly in API request, force it to return json.
-
+Vercel body limit = ~4.5MB by default.
 
 1️⃣ Use one AI call per feature
 2️⃣ Add Basic Rate Protection (MVP Level)
@@ -43,7 +43,7 @@ pdfjs-dist v3.11.174
 2.  Day 2 (17-02-26) - Morning - 3 hours - Phase 2 complete 
 3.  Day 2 (18-02-26) - Morning - 2 hours - Stylings fixes
 4.  Day 2 (19-02-26) - Morning - 2 hours - Phase 3 and 4
-5.  Day 2 (20-02-26) - Morning - 2 hours - PDF Extraction
-6.  Day 3 (21-02-26) - 
-7.  Day 3 (22-02-26) - 
+5.  Day 2 (20-02-26) - Morning - 2 hours - Day 2 Part 1
+6.  Day 2 (21-02-26) - Morning - 3 hours - Day 2 Part 2
+7.  Day 2 (22-02-26) - 
 

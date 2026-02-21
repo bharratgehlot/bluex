@@ -38,8 +38,8 @@ export default function ResumeUpload({ onValidFile }: ResumeUploadProps) {
       return;
     }
 
-    if (file.size > 5 * 1024 * 1024) {
-      setError("File is too large (5 MB MAX)");
+    if (file.size > 3 * 1024 * 1024) {
+      setError("File is too large (3 MB MAX)");
       setSelectedFile(null);
       e.target.value = "";
       return;
