@@ -155,6 +155,7 @@ export default function Home() {
         <ReviewPage
           reviewData={response}
           fileName={selectedFile?.name || ""}
+          file={selectedFile}
           onBack={() => setView("upload")}
         />
       )}

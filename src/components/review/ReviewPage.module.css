@@ -3,14 +3,12 @@
 ========================= */
 
 .container {
-  max-width: 500px;
-  margin: 0 auto;
+  border: solid 2px #000000;
+  max-width: 600px;
   padding: 32px;
-
   background-color: rgba(255, 255, 255, 0.9);
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
-
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
@@ -24,6 +22,8 @@
   color: #1e293b;
   margin-bottom: 16px;
 }
+
+/* Not in ResumeUpload */
 
 .section {
   margin-top: 24px;
@@ -44,6 +44,7 @@
   font-size: 14px;
   font-style: italic;
   color: #64748b;
+
 }
 
 /* =========================
@@ -76,6 +77,63 @@
 }
 
 /* =========================
+   Overall Score Highlight
+========================= */
+
+.overallWrapper {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background: #f1f5f9;
+}
+
+.overallScore {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.overallLabel {
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* =========================
+   Progress Bar
+========================= */
+
+.progressBar {
+  margin-top: 8px;
+  height: 8px;
+  width: 100%;
+  background-color: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+/* Score Colors */
+
+.green {
+  background-color: #22c55e;
+}
+
+.yellow {
+  background-color: #facc15;
+}
+
+.red {
+  background-color: #ef4444;
+}
+
+
+/* =========================
    Lists
 ========================= */
 
@@ -88,6 +146,26 @@
   margin-bottom: 6px;
   font-size: 14px;
   color: #334155;
+}
+
+
+/* =========================
+   PDF Preview
+========================= */
+
+.pdfWrapper {
+  margin-top: 16px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.pdfFrame {
+  width: 100%;
+  height: 70vh;
+  max-height: 650px;
+  min-height: 350px;
+  border: none;
 }
 
 /* =========================
@@ -132,4 +210,26 @@
 
 .button.secondary:hover {
   background-color: #cbd5e1;
+}
+
+@media(max-width: 440px) {
+
+
+  .container {
+    padding: 10px;
+  }
+
+  .scoreGrid {
+    display: flex;
+    gap: 8px;
+  }
+
+  .scoreCard {
+    flex: 1;
+  }
+
+  .pdfFrame {
+    height: 55vh;
+  }
+
 }
