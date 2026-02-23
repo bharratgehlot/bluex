@@ -14,6 +14,7 @@
 import ResumeUpload from "@/components/upload/ResumeUpload";
 import { useState } from "react";
 import { canUpload, incrementUpload } from "@/lib/storage/uploadLimit";
+import ReviewPage from "@/components/review/ReviewPage";
 
 
 export default function Home() {
@@ -22,40 +23,11 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [base64Pdf, setBase64Pdf] = useState<string | null>(null);
+  const [view, setView ] = useState<"upload" | "review">("upload");
 
-  const testAPI = async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      setResponse(null);
-
-      const res = await fetch("/api/generate-review", {
-        method: "POST",
-      });
-
-      const data = await res.json();
-
-      /** Parse response */
-      let parsed;
-
-      try {
-        parsed = JSON.parse(data.ai);
-      } catch {
-        setError("Invalid AI response format");
-        return;
-      }
-
-      setResponse(parsed);
-
-
-    } catch (err) {
-      setError("Something went wrong");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   async function handleValidFile(file: File) {
+    setResponse(null);
     setError(null);
 
     /** Upload limit check */
@@ -111,34 +83,16 @@ export default function Home() {
         throw new Error("API failed");
       }
 
+
       const data = await res.json();
-      // Sanitize and parse Gemini response safely
-      let raw = data.ai as string;
 
-      // Remove markdown wrappers if present
-      raw = raw.replace(/```json/g, "").replace(/```/g, "").trim();
-
-      // Extract JSON object safely
-      const firstBrace = raw.indexOf("{");
-      const lastBrace = raw.lastIndexOf("}");
-
-      if (firstBrace === -1 || lastBrace === -1) {
-        setError("Invalid AI response format");
+      if (!data.success) {
+        setError(data.error || "AI processing failed");
         return;
       }
 
-      const jsonString = raw.substring(firstBrace, lastBrace + 1);
-
-      let parsed;
-
-      try {
-        parsed = JSON.parse(jsonString);
-      } catch {
-        setError("Invalid AI response format");
-        return;
-      }
-
-      setResponse(parsed);
+      setResponse(data.data);
+      setView("review")
 
       /** Increment only after allowed */
 
@@ -185,62 +139,26 @@ export default function Home() {
       {error && <p style={{ color: "red" }}>{error}</p>}
 
 
-      {response && (
-        <div
-          style={{
-            marginTop: "20px",
-            background: "#ffffff",
-            padding: "20px",
-            borderRadius: "8px",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-          }}
-        >
-          <h3>Resume Review</h3>
+      {view === "upload" && (
+        <>
+          <ResumeUpload onValidFile={handleValidFile} />
 
-          <p><strong>Overall Score:</strong> {response.overallScore}</p>
-          <p><strong>ATS Score:</strong> {response.atsScore}</p>
-          <p><strong>Impact Score:</strong> {response.impactScore}</p>
-          <p><strong>Clarity Score:</strong> {response.clarityScore}</p>
-
-          <div style={{ marginTop: "15px" }}>
-            <strong>Strengths:</strong>
-            <ul>
-              {response.strengths?.map((item: string, i: number) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div style={{ marginTop: "15px" }}>
-            <strong>Weaknesses:</strong>
-            <ul>
-              {response.weaknesses?.map((item: string, i: number) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div style={{ marginTop: "15px" }}>
-            <strong>Improvements:</strong>
-            <ul>
-              {response.improvements?.map((item: string, i: number) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
+          {selectedFile && (
+            <p style={{ marginTop: "10px", color: "green" }}>
+              Ready to process: {selectedFile.name}
+            </p>
+          )}
+        </>
       )}
 
-
-
-
-      <ResumeUpload onValidFile={handleValidFile} />
-
-      {selectedFile && (
-        <p style={{ marginTop: "10px", color: "green" }}>
-          Ready to process: {selectedFile.name}
-        </p>
+      {view === "review" && response && (
+        <ReviewPage
+          reviewData={response}
+          fileName={selectedFile?.name || ""}
+          onBack={() => setView("upload")}
+        />
       )}
+
     </main>
 
   );

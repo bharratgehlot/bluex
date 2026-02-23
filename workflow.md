@@ -18,12 +18,21 @@ Simple to config: Same seamless integration. It excels at taking a system instru
 PDF Support: Yes. It supports the same 50 MB and 1,000-page limits for PDFs.
 Free Tier Limits: 15 requests per minute (RPM) and 200 requests per day (RPD). Easily covers your MVP's daily target.
 
-Reason:
+We are using 🟢 Gemini 2.5 Flash
+Reason & Limitations:
 
 1. 10 RPM is enough (rate per minute)
-2. ~250 RPD enough for MVP validation
+2. ~20 RPD enough for MVP validation (Request per day)
 3. Better reasoning than Flash-Lite
 4. Pro is too limited (50/day is dangerous)
+5. Tokens Per Minute (TPM): 250,000
+6. Context Caching: Not available on the free tier
+
+Notes:
+
+1. Usage-Based: These limits are per project, not per API key, and reset daily.
+2. 429 Errors: Exceeding these limits will result in rate limit errors (429: Too Many Requests).
+3. 
 
 How:
 
@@ -45,5 +54,7 @@ pdfjs-dist v3.11.174
 4.  Day 2 (19-02-26) - Morning - 2 hours - Phase 3 and 4
 5.  Day 2 (20-02-26) - Morning - 2 hours - Day 2 Part 1
 6.  Day 2 (21-02-26) - Morning - 3 hours - Day 2 Part 2
-7.  Day 2 (22-02-26) - 
+7. 
+8.  Day 3 (23-02-26) - Morning - 3 hours - UI Building
 
+till 90
