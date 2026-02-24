@@ -15,6 +15,7 @@ import ResumeUpload from "@/components/upload/ResumeUpload";
 import { useState } from "react";
 import { canUpload, incrementUpload } from "@/lib/storage/uploadLimit";
 import ReviewPage from "@/components/review/ReviewPage";
+import LoadingScreen from "@/components/common/LoadingScreen";
 
 
 export default function Home() {
@@ -138,10 +139,14 @@ export default function Home() {
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
+      {loading && <LoadingScreen />}
 
-      {view === "upload" && (
+      {view === "upload" && !loading && (
         <>
-          <ResumeUpload onValidFile={handleValidFile} />
+          <ResumeUpload
+            onValidFile={handleValidFile}
+            isLoading={loading}
+          />
 
           {selectedFile && (
             <p style={{ marginTop: "10px", color: "green" }}>

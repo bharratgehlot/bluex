@@ -1,0 +1,31 @@
+.container {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #e5e7eb;
+  border-top: 5px solid #111827;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.message {
+  font-size: 16px;
+  font-weight: 500;
+  color: #374151;
+  transition: opacity 0.3s ease-in-out;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

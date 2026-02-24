@@ -16,11 +16,12 @@ import styles from "./ResumeUpload.module.css"
 
 interface ResumeUploadProps {
   onValidFile: (file: File) => void;
+  isLoading: boolean;
 }
 
 /** Default function */
 
-export default function ResumeUpload({ onValidFile }: ResumeUploadProps) {
+export default function ResumeUpload({ onValidFile, isLoading }: ResumeUploadProps) {
   const [error, setError] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
@@ -80,8 +81,10 @@ export default function ResumeUpload({ onValidFile }: ResumeUploadProps) {
       <button
         className={styles.submit_btn}
         onClick={handleSubmit}
-        disabled={!selectedFile}
-      >AUDIT MY RESUME</button>
+        disabled={!selectedFile || isLoading}
+      >
+        {isLoading ? "Analyzing..." : "AUDIT MY RESUME"}
+      </button>
 
 
       {selectedFile && (

@@ -27,6 +27,7 @@ Reason & Limitations:
 4. Pro is too limited (50/day is dangerous)
 5. Tokens Per Minute (TPM): 250,000
 6. Context Caching: Not available on the free tier
+7. Limit Reset at - 
 
 Notes:
 
@@ -46,7 +47,7 @@ Vercel body limit = ~4.5MB by default.
 Using pdfjs-dist for the pdf extraction
 pdfjs-dist v3.11.174
 
-==================PROGRESS=====================
+==================PROGRESS (DEVELOPMENT)=====================
 
 1.  Day 1 (16-02-26) - Morning - 2.5 hours - Initial setup
 2.  Day 2 (17-02-26) - Morning - 3 hours - Phase 2 complete 
@@ -55,6 +56,28 @@ pdfjs-dist v3.11.174
 5.  Day 2 (20-02-26) - Morning - 2 hours - Day 2 Part 1
 6.  Day 2 (21-02-26) - Morning - 3 hours - Day 2 Part 2
 7. 
-8.  Day 3 (23-02-26) - Morning - 3 hours - UI Building
+8.  Day 3 (23-02-26) - Morning - 3 hours - Night 2 Hour - UI Building.
+9.  Day 3 (23-02-26) - Morning - 2 hours - UI Building + Testing
+10. Day 5 - expected - resume to JD matcher 
+11. Day 5 - expected - resume to JD matcher
+12. Day 5 - expected - resume to JD matcher
+13. Day 6 - expected - premium workflow
+14. Day 6 - expected - payment workflow
+15. Deployement & Launch - 01 March
+
+==================FIRST ITERATION (9-14 Feb)=======================
+
+Feature extension
+Feedback from atlest 20 users
+2-3 Premium users
+
+==================SECOND ITERATION (23-28)=====================
+
+More Testing
+More Resume template
+More promotion
+
+
+Total: 30 Days Project
 
 till 90
