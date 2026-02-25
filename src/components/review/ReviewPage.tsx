@@ -8,6 +8,12 @@
 
 import styles from "./ReviewPage.module.css";
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+
+const PdfViewer = dynamic(
+  () => import("@/components/common/PdfViewer"),
+  { ssr: false }
+);
 
 interface ReviewData {
   overallScore: number;
@@ -59,18 +65,32 @@ export default function ReviewPage({ reviewData, fileName, file, onBack }: Revie
       <div className={`${styles.section} ${styles.previewBox}`}>
         <h3 className={styles.title}>Resume Preview</h3>
 
+        {/* 1. file name */}
+
         <p className={styles.fileName}>
           <strong>File:</strong> {fileName}
         </p>
 
+        {/* 2. Resume preview from react-pdf */}
+
+        {/* ===== New React-PDF Viewer ===== */}
+        <div className={styles.viewerContainer}>
+          <PdfViewer file={file} />
+        </div>
+
+        {/* ===== Legacy Iframe Preview (Temporary Testing) ===== */}
+
         {pdfUrl && (
-          <div className={styles.pdfWrapper}>
+          <div className={styles.iframeContainer}>
             <iframe
+              title="Lagacy PDF Preview"
               src={pdfUrl}
               className={styles.pdfFrame}
             />
           </div>
         )}
+
+
 
       </div>
 

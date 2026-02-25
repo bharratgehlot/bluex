@@ -44,9 +44,7 @@ Vercel body limit = ~4.5MB by default.
 2️⃣ Add Basic Rate Protection (MVP Level)
 3️⃣ Keep Prompts Efficient
 
-Using pdfjs-dist for the pdf extraction
-pdfjs-dist v3.11.174
-
+react-pdf v10
 ==================PROGRESS (DEVELOPMENT)=====================
 
 1.  Day 1 (16-02-26) - Morning - 2.5 hours - Initial setup
@@ -57,8 +55,8 @@ pdfjs-dist v3.11.174
 6.  Day 2 (21-02-26) - Morning - 3 hours - Day 2 Part 2
 7. 
 8.  Day 3 (23-02-26) - Morning - 3 hours - Night 2 Hour - UI Building.
-9.  Day 3 (23-02-26) - Morning - 2 hours - UI Building + Testing
-10. Day 5 - expected - resume to JD matcher 
+9.  Day 3 (24-02-26) - Morning - 2 hours - UI Building 
+10. Day 5 (25-02-26) - expected - Testing
 11. Day 5 - expected - resume to JD matcher
 12. Day 5 - expected - resume to JD matcher
 13. Day 6 - expected - premium workflow

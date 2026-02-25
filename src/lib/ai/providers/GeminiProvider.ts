@@ -1,10 +1,9 @@
 /**
- * Uses Gemini 2.5 Flash (10 RPM / ~250 RPD)
+ * src/lib/ai/providers/GeminiProvider.ts
+ * Uses Gemini 2.5 Flash
  * Safe for early MVP testing
  * Easy to swap later
- * src/providers/GeminiProvider.ts
  * Maybe we will add temp later
- * Maybe we will add Empty guard → optional later
  */
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -17,13 +16,19 @@ export class GeminiProvider implements AIProvider {
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 
     this.model = genAI.getGenerativeModel({
-      model: "gemini-2.5-flash"
-      //model: "gemini-2-flash"
-    }
-    )
+      model: "gemini-2.5-flash",
+      generationConfig: {
+        temperature: 0.2,
+        topP: 0.8
+      },
+    });
   }
 
   async generateReview(base64Pdf: string): Promise<string> {
+
+    if (!base64Pdf) {
+      throw new Error("Empty resume input")
+    }
 
     const result = await this.model.generateContent([
       {
@@ -40,13 +45,14 @@ export class GeminiProvider implements AIProvider {
 
         Rules:
         - All scores must be integers between 0 and 100.
+        - Output must be valid JSON only
+        - Personalize based on resume, no generic advice.
         - Do NOT return decimals.
         - Do not return null.
         - If a section has no data, return an empty array [].
         - Do NOT include any extra keys.
         - Do NOT include markdown.
         - Do NOT include explanation.
-        - Output must be valid JSON only
         - Always include all fields even if empty.
         - Do not wrap the JSON in backticks or code blocks.
         - If resume is not in English, analyze it in its original language. Return output in English.
@@ -75,15 +81,11 @@ export class GeminiProvider implements AIProvider {
         "weaknesses": ["The uploaded document does not appear to be a valid resume."],
         "improvements": ["Please upload a professional resume in PDF format."]
       }
-
-
   `
       }
     ]);
 
     const response = await result.response;
-    return response.text();
+    return response.text() ?? "";
   }
-
-
 }

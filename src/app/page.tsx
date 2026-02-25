@@ -1,10 +1,10 @@
 /**
+ * src/page.tsx
  * This page owns - navigation, high level flow control and review.
  * This page do not handle file parsing, upload limit logic and pdf validation
  * This page acts as orchestrator.
  * This page handle Convert PDF to base64 format.
- * src/page.tsx
- * 
+ * It also handle upload flow, base64 converison, API call, view switching, state
  * Constraints: PDF only, max 3 mb, daily limit 7, 
  */
 
@@ -23,7 +23,7 @@ export default function Home() {
   const [response, setResponse] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [base64Pdf, setBase64Pdf] = useState<string | null>(null);
+  //const [base64Pdf, setBase64Pdf] = useState<string | null>(null);
   const [view, setView ] = useState<"upload" | "review">("upload");
 
 
@@ -49,8 +49,8 @@ export default function Home() {
     /** convert to base64 */
 
     try {
-      //const base64 = await covertToBase64(file);
-      base64 = await covertToBase64(file);
+      
+      base64 = await convertToBase64(file);
 
       console.log("Base64 length:", base64.length);
 
@@ -59,7 +59,7 @@ export default function Home() {
         return;
       }
 
-      setBase64Pdf(base64);
+      //setBase64Pdf(base64);
 
     } catch (err) {
       setError("Failed to convert file");
@@ -111,7 +111,7 @@ export default function Home() {
 
   /** Function 3 - Helper function to convert pdf to base64 */
 
-  function covertToBase64(file: File): Promise<string> {
+  function convertToBase64(file: File): Promise<string> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
 

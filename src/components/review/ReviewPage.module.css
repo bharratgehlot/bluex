@@ -212,6 +212,24 @@
   background-color: #cbd5e1;
 }
 
+.viewerContainer {
+  margin-top: 16px;
+  margin-bottom: 24px;
+  display: flex;
+    justify-content: center;
+}
+
+.iframeContainer {
+  margin-top: 24px;
+  border-top: 1px solid #ddd;
+  padding-top: 16px;
+}
+
+.viewerContainer canvas {
+  max-width: 100%;
+  height: auto !important;
+}
+
 @media(max-width: 440px) {
 
 

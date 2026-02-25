@@ -1,4 +1,9 @@
-import { GeminiProvider } from "@/providers/GeminiProvider";
+/**
+ * src/api/generate-review/route.ts
+ * API calling 
+ */
+
+import { GeminiProvider } from "@/lib/ai/providers/GeminiProvider";
 import { NextResponse } from "next/server";
 
 /** A function that handle incorrect values in score */
@@ -20,12 +25,12 @@ function extractJSON(text: string) {
 
 export async function POST(req: Request) {
   try {
-    console.log("\n--- [ROUTE START] New Request Received ---"); // Log 1
+ 
     const body = await req.json();
     const { base64Pdf } = body;
 
     if (!base64Pdf) {
-      console.log("[Error] No base64Pdf found in the request body."); // Log 2
+   
       return NextResponse.json(
         { success: false, error: "No file received" },
         { status: 400 }
@@ -33,28 +38,24 @@ export async function POST(req: Request) {
     }
 
     const gemini = new GeminiProvider();
-
-    console.log("[GEMINI] calling GeminiProvider.generateReview..."); // Log 3
-
     const aiRaw = await gemini.generateReview(base64Pdf);
 
-    console.log("[GEMINI SUCCESS] Received response from AI. Length:", aiRaw?.length); // Log 4
 
-    console.log("[PARSING] Extracting JSON..."); // Log 5
     const cleaned = extractJSON(aiRaw);
 
     if (!cleaned) {
-      console.log("[ERROR] Failed to extract JSON from AI response. Raw was:", aiRaw); // Log 6
       throw new Error("Invalid JSON structure from AI")
     }
 
     let parsed;
     try {
       parsed = JSON.parse(cleaned);
-      console.log("[PARSING SUCCESS] JSON successfully parsed."); // Log 7
     } catch { 
-      console.log("[ERROR] JSON.parse failed on the cleaned string."); // Log 8
       throw new Error("JSON parsing failed");
+    }
+
+    if(typeof parsed !== "object" || parsed === null) {
+      throw new Error("Parsed AI response invalid")
     }
 
     const safeResponse = {
@@ -67,7 +68,6 @@ export async function POST(req: Request) {
       improvements: Array.isArray(parsed.improvements) ? parsed.improvements : [],
     };
 
-    console.log("--- [ROUTE SUCCESS] Sending response to client ---\n"); // Log 9
     return NextResponse.json({
       success: true,
       data: safeResponse,
@@ -75,13 +75,7 @@ export async function POST(req: Request) {
 
   } catch (error) {
 
-    console.error("\n--- [ROUTE FAILED] Caught an Error ---"); // Log 10
-    console.error("[FULL ERROR OBJECT]:", error); // Log 11
-
     return NextResponse.json(
-
-
-
       {
         success: false,
         error: "AI processing failed",
