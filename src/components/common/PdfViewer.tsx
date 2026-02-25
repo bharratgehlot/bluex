@@ -1,5 +1,22 @@
 "use client";
 
+
+// Polyfill for older mobile browsers (Promise.withResolvers)
+if (!(Promise as any).withResolvers) {
+  (Promise as any).withResolvers = function () {
+    let resolve: any;
+    let reject: any;
+
+    const promise = new Promise((res, rej) => {
+      resolve = res;
+      reject = rej;
+    });
+
+    return { promise, resolve, reject };
+  };
+}
+
+
 import { useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import styles from "./PdfViewer.module.css";
