@@ -7,7 +7,6 @@
 "use client"
 
 import styles from "./ReviewPage.module.css";
-import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 const PdfViewer = dynamic(
@@ -42,21 +41,6 @@ export default function ReviewPage({ reviewData, fileName, file, onBack }: Revie
     return styles.red;
   };
 
-
-  const [pdfUrl, setPdfUrl] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!file) return;
-
-    const url = URL.createObjectURL(file);
-    setPdfUrl(url);
-
-    return () => {
-      URL.revokeObjectURL(url);
-    };
-  }, [file]);
-
-
   return (
     <div className={styles.container}
     >
@@ -78,20 +62,7 @@ export default function ReviewPage({ reviewData, fileName, file, onBack }: Revie
           <PdfViewer file={file} />
         </div>
 
-        {/* ===== Legacy Iframe Preview (Temporary Testing) ===== */}
-
-        {pdfUrl && (
-          <div className={styles.iframeContainer}>
-            <iframe
-              title="Lagacy PDF Preview"
-              src={pdfUrl}
-              className={styles.pdfFrame}
-            />
-          </div>
-        )}
-
-
-
+    
       </div>
 
       {/* Review Section */}

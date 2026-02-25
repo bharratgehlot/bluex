@@ -56,7 +56,7 @@ react-pdf v10
 7. 
 8.  Day 3 (23-02-26) - Morning - 3 hours - Night 2 Hour - UI Building.
 9.  Day 3 (24-02-26) - Morning - 2 hours - UI Building 
-10. Day 5 (25-02-26) - expected - Testing
+10. Day 5 (25-02-26) - Morning - 2 hours - Testing Part 1 
 11. Day 5 - expected - resume to JD matcher
 12. Day 5 - expected - resume to JD matcher
 13. Day 6 - expected - premium workflow
