@@ -34,6 +34,7 @@ export function getStoredData(): UploadData | null {
   try {
     return JSON.parse(stored);
   } catch {
+    localStorage.removeItem(STORAGE_KEY);
     return null;
   } 
 }

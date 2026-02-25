@@ -46,11 +46,6 @@ export default function ResumeUpload({ onValidFile, isLoading }: ResumeUploadPro
       return;
     }
 
-    console.log("Selected file: ", file.name);
-    console.log("File: size", file.size);
-    console.log("File: type", file.type);
-
-
     /* Clear errors */
 
     setError(null);

@@ -36,8 +36,11 @@ export default function PdfViewer({ file }: PdfViewerProps) {
 
   if (!file) return null;
 
+
+
   return (
     <div className={styles.viewerWrapper}>
+    <div className={styles.zoomWrapper} >
       <Document
         file={file}
         onLoadSuccess={({ numPages }) => setNumPages(numPages)}
@@ -47,11 +50,13 @@ export default function PdfViewer({ file }: PdfViewerProps) {
             key={index} 
             pageNumber={index + 1} 
             width={600} 
+            scale={1.5}
             renderTextLayer={false}
             renderAnnotationLayer={false}
           />
         ))}
       </Document>
+      </div>
     </div>
   );
 }

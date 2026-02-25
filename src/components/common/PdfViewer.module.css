@@ -1,0 +1,9 @@
+.viewerWrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.zoomWrapper {
+  transform: scale(1.05);
+  transform-origin: top center;
+}
