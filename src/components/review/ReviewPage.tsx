@@ -42,36 +42,29 @@ export default function ReviewPage({ reviewData, fileName, file, onBack }: Revie
   };
 
   return (
+
     <div className={styles.container}
     >
 
-      {/* Resume Preview Section */}
-      <div className={`${styles.section} ${styles.previewBox}`}>
-        <h3 className={styles.title}>Resume Preview</h3>
+      {/* ================= 1. Preview Box ================= */}
 
-        {/* 1. file name */}
+
+      <div className={styles.previewBox}>
+        <h3 className={styles.title}>Preview:</h3>
 
         <p className={styles.fileName}>
           <strong>File:</strong> {fileName}
         </p>
 
-        {/* 2. Resume preview from react-pdf */}
-
-        {/* ===== New React-PDF Viewer ===== */}
         <div className={styles.viewerContainer}>
           <PdfViewer file={file} />
         </div>
-
-    
       </div>
 
-      {/* Review Section */}
+      {/* ================= 2. Review Box ================= */}
 
-
-      <div className={styles.section}>
-        <h2 className={styles.title}>Resume Review</h2>
-
-
+      <div className={styles.reviewBox}> 
+        <h2 className={styles.title}>What AI says</h2>
 
         {/* ===== Overall Score Highlight ===== */}
         <div className={styles.overallWrapper}>
@@ -117,7 +110,7 @@ export default function ReviewPage({ reviewData, fileName, file, onBack }: Revie
 
 
         {/* Strengths */}
-        <div className={styles.section}>
+        <div className={styles.contentBlock}>
           <strong>Strengths</strong>
           <ul className={styles.list}>
             {reviewData.strengths.map((item, i) => (
@@ -129,7 +122,7 @@ export default function ReviewPage({ reviewData, fileName, file, onBack }: Revie
 
 
         {/* Weaknesses */}
-        <div className={styles.section}>
+        <div className={styles.contentBlock}>
           <strong>Weaknesses</strong>
           <ul className={styles.list}>
             {reviewData.weaknesses.map((item, i) => (
@@ -141,7 +134,7 @@ export default function ReviewPage({ reviewData, fileName, file, onBack }: Revie
 
 
         {/* Improvements */}
-        <div className={styles.section}>
+        <div className={styles.contentBlock}>
           <strong>Improvements</strong>
           <ul className={styles.list}>
             {reviewData.improvements.map((item, i) => (
@@ -149,18 +142,11 @@ export default function ReviewPage({ reviewData, fileName, file, onBack }: Revie
             ))}
           </ul>
         </div>
-
-
-
       </div>
 
+      {/* ================= 3. Button Box ================= */}
 
-
-
-
-
-      {/* Buttons */}
-      <div className={styles.buttonRow}>
+      <div className={styles.buttonBox}> 
         <button
           onClick={onBack}
           className={`${styles.button} ${styles.secondary}`}
@@ -171,6 +157,8 @@ export default function ReviewPage({ reviewData, fileName, file, onBack }: Revie
         <button className={styles.button}>
           Fix My Resume
         </button>
+      
+
       </div>
 
     </div>

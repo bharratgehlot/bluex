@@ -49,8 +49,8 @@ export default function PdfViewer({ file }: PdfViewerProps) {
           <Page 
             key={index} 
             pageNumber={index + 1} 
-            width={600} 
-            scale={2}
+            width={600}
+            scale={1.6}
             renderTextLayer={false}
             renderAnnotationLayer={false}
           />
