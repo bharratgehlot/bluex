@@ -50,7 +50,7 @@ export default function PdfViewer({ file }: PdfViewerProps) {
             key={index} 
             pageNumber={index + 1} 
             width={600} 
-            scale={1.5}
+            scale={2}
             renderTextLayer={false}
             renderAnnotationLayer={false}
           />
