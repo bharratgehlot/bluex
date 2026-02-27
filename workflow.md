@@ -53,18 +53,30 @@ react-pdf v10
 4.  Day 2 (19-02-26) - Morning - 2 hours - Phase 3 and 4
 5.  Day 2 (20-02-26) - Morning - 2 hours - Day 2 Part 1
 6.  Day 2 (21-02-26) - Morning - 3 hours - Day 2 Part 2
-7. 
+
+7.  Sunday
+
 8.  Day 3 (23-02-26) - Morning - 3 hours - Night 2 Hour - UI Building.
 9.  Day 3 (24-02-26) - Morning - 2 hours - UI Building 
-10. Day 5 (25-02-26) - Morning - 2 hours - Testing Part 1 
-11. Day 5 - expected - resume to JD matcher
-12. Day 5 - expected - resume to JD matcher
-13. Day 6 - expected - premium workflow
-14. Day 6 - expected - payment workflow
-15. Deployement & Launch - 01 March
+10. Day 3 (25-02-26) - Morning - 2 hours - Testing Part 1 & 2
+11. Day 3 (26-02-26) - Break 
+12. Day 3 (27-02-26) - Break 
+13. Day 3 (28-02-26) - Break  
 
-==================FIRST ITERATION (9-14 Feb)=======================
+14. Sunday
 
+15. Day 5 (02-03-26) - expected - resume to JD matcher
+16. Day 5 (03-03-26) - expected - resume to JD matcher
+17. Day 5 (04-03-26) - expected - resume to JD matcher
+18. Day 6 (05-03-26) - expected - payment integration
+19. Day 6 (06-03-26) - expected - premium workflow
+20. Day 6 (07-03-26) - expected - final testing
+21. Day 7 (08-03-26) - expected - deployement And Launch
+
+
+==================FIRST ITERATION (23-28 March)=======================
+
+template addition
 Feature extension
 Feedback from atlest 20 users
 2-3 Premium users
@@ -77,5 +89,3 @@ More promotion
 
 
 Total: 30 Days Project
-
-till 90
