@@ -1,3 +1,9 @@
+/**
+ * src/api/match-resume/route.tsx
+ * Role: Your serverless backend endpoint. It receives the JD text and Resume text from the frontend, uses your existing src/lib/ai/providers/GeminiProvider.ts, 
+ * formats the prompt, and streams the structured JSON response back.
+ */
+
 import { NextResponse } from "next/server";
 
 export async function POST() {

@@ -59,33 +59,55 @@ react-pdf v10
 8.  Day 3 (23-02-26) - Morning - 3 hours - Night 2 Hour - UI Building.
 9.  Day 3 (24-02-26) - Morning - 2 hours - UI Building 
 10. Day 3 (25-02-26) - Morning - 2 hours - Testing Part 1 & 2
-11. Day 3 (26-02-26) - Break 
-12. Day 3 (27-02-26) - Break 
-13. Day 3 (28-02-26) - Break  
+11. Day 3 (26-02-26) - Break  
+12. Day 3 (27-02-26) - Morning - 1 hours - UI Update
+13. Day 3 (28-02-26) - Break  - SEO maybe
 
 14. Sunday
 
-15. Day 5 (02-03-26) - expected - resume to JD matcher
+15. Day 5 (02-03-26) - expected - resume to JD matcher (feature 2)
 16. Day 5 (03-03-26) - expected - resume to JD matcher
 17. Day 5 (04-03-26) - expected - resume to JD matcher
-18. Day 6 (05-03-26) - expected - payment integration
-19. Day 6 (06-03-26) - expected - premium workflow
-20. Day 6 (07-03-26) - expected - final testing
+18. Day 6 (05-03-26) - expected - payment integration (part of system)
+19. Day 6 (06-03-26) - expected - premium workflow (part of system)
+20. Day 6 (07-03-26) - expected - thin content update & final testing
 21. Day 7 (08-03-26) - expected - deployement And Launch
 
 
-==================FIRST ITERATION (23-28 March)=======================
+==================FIRST ITERATION (9-15 March) =======================
 
-template addition
+Feature 3: template addition
 Feature extension
 Feedback from atlest 20 users
 2-3 Premium users
 
-==================SECOND ITERATION (23-28)=====================
+
+
+FINISH by 15 March 
+
+==================SECOND ITERATION (After 10 June) =====================
 
 More Testing
 More Resume template
 More promotion
-
+Manual review - Button click => Input received bia form (cv+role+instructions+email) => Review done (3 days max) => Email sent to user with detailed summury.
+List of top 100 froud companies
 
 Total: 30 Days Project
+
+==================PRODUCTION GRADE REQUIREMENTS=======================
+
+Premium Branding - colors, typography, fonts, design, patterns.
+LinkedIn page - posts once per month 
+Posts should be professionally design but we can skip this one with AI.
+Professional logo + banner
+Complete website - No broken UI or functionality
+
+JD to resume matcher will have pref section also
+
+Later Features After Launch
+
+Feature 4: generate resume based on jd + uploaded jd.
+Feature 5: Manual resume check
+Feature 6: Froud company list
+Feature 7: Spreedsheets Tracking each application.
