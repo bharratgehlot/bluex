@@ -8,9 +8,19 @@
  * FLOW: User paste text into jdInput.jsx. 
  * FLOW: User click Analyze Match button => POST request sent to /api/match-resume.
  * FLOW: Returned JSON format displayed to user.
+ * 
+ * /match/page.tsx
+├── State machine
+├── Base64 conversion
+├── Upload limit check
+├── JD input state
+├── API call to /api/match-resume
+└── Result view
  */
 
-export default function Home() {
+"use client";
+
+export default function MatchFeature() {
   return (
     <main style={{ padding: "40px" }}>
       <h1>Feature 2</h1>

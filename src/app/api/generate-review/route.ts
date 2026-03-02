@@ -1,5 +1,5 @@
 /**
- * src/api/generate-review/route.ts
+ * src/app/api/generate-review/route.ts
  * API calling 
  */
 

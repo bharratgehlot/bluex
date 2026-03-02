@@ -30,12 +30,11 @@ body {
   min-height: 100vh;
   /* ❌ Not inherited */
 
+  /*
   display: flex;
-  /* ⚠ Affects ONLY direct children */
   align-items: center;
-  /* ⚠ Centers vertically */
   justify-content: center;
-  /* ⚠ Centers horizontally */
+  */
   -webkit-font-smoothing: antialiased;
 
   border: 2px solid red;

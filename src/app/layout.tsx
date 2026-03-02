@@ -13,8 +13,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/**
         <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
         <script>eruda.init();</script>
+        */}
         <script
           src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
           defer

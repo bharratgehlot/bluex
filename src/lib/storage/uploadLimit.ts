@@ -1,4 +1,5 @@
 /**
+ * src/lib/storage/uploadLimit.ts
  * Utility Function 
  * Purpose: Enforce soft upload limit (max 7).
  * Use localStorage for tracking (can be bypassed by user)
