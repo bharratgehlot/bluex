@@ -3,7 +3,7 @@
  * / → Home (landing page)
    /review → Feature 1 (Resume Review Engine)
    /match → Feature 2 (JD Match)
-   
+
  * This page owns - navigation, high level flow control and review.
  * This page do not handle file parsing, upload limit logic and pdf validation
  * This page acts as orchestrator.
@@ -20,7 +20,6 @@ import { useState } from "react";
 import { canUpload, incrementUpload } from "@/lib/storage/uploadLimit";
 import ReviewPage from "@/components/review/ReviewPage";
 import LoadingScreen from "@/components/common/LoadingScreen";
-import { useRouter } from "next/navigation";
 
 
 export default function Home() {
@@ -30,7 +29,6 @@ export default function Home() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   //const [base64Pdf, setBase64Pdf] = useState<string | null>(null);
   const [view, setView ] = useState<"upload" | "review">("upload");
-  const router = useRouter();
 
   async function handleValidFile(file: File) {
     setResponse(null);
@@ -167,15 +165,6 @@ export default function Home() {
           onBack={() => setView("upload")}
         />
       )}
-
-      <div style={{ marginBottom: "20px" }}>
-        <button
-          onClick={() => router.push("/match")}
-          style={{ padding: "10px 16px", cursor: "pointer" }}
-        >
-          Resume ↔ JD Match (Premium)
-        </button>
-      </div>
 
     </main>
 
