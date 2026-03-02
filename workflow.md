@@ -33,7 +33,7 @@ Notes:
 
 1. Usage-Based: These limits are per project, not per API key, and reset daily.
 2. 429 Errors: Exceeding these limits will result in rate limit errors (429: Too Many Requests).
-3. 
+3. window.location.href (Do not use)
 
 How:
 
