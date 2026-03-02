@@ -20,12 +20,15 @@
 
 "use client";
 
+import JdInput from "@/components/match/JdInput";
+import ResumeUpload from "@/components/upload/ResumeUpload";
+
 export default function MatchFeature() {
   return (
     <main style={{ padding: "40px" }}>
-      <h1>Feature 2</h1>
-
-      <p>AI Resume to JD Matching</p>
+  
+      <JdInput />
+      
     </main>
   );
 }

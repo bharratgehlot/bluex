@@ -61,11 +61,11 @@ react-pdf v10
 10. Day 3 (25-02-26) - Morning - 2 hours - Testing Part 1 & 2
 11. Day 3 (26-02-26) - Break  
 12. Day 3 (27-02-26) - Morning - 1 hours - UI Update
-13. Day 3 (28-02-26) - Break  - SEO maybe
+13. Day 3 (28-02-26) - Break 
 
 14. Sunday
 
-15. Day 5 (02-03-26) - expected - resume to JD matcher (feature 2)
+15. Day 5 (02-03-26) - Morning - 2 hours - resume to JD matcher (feature 2)
 16. Day 5 (03-03-26) - expected - resume to JD matcher
 17. Day 5 (04-03-26) - expected - resume to JD matcher
 18. Day 6 (05-03-26) - expected - payment integration (part of system)
@@ -77,11 +77,10 @@ react-pdf v10
 ==================FIRST ITERATION (9-15 March) =======================
 
 Feature 3: template addition
-Feature extension
 Feedback from atlest 20 users
 2-3 Premium users
-
-
+SEO maybe
+Change BlueX to ResumeDaddy
 
 FINISH by 15 March 
 
@@ -90,7 +89,7 @@ FINISH by 15 March
 More Testing
 More Resume template
 More promotion
-Manual review - Button click => Input received bia form (cv+role+instructions+email) => Review done (3 days max) => Email sent to user with detailed summury.
+Manual review - Button click => Input received via form (cv+role+instructions+email) => Review done (3 days max) => Email sent to user with detailed summury.
 List of top 100 froud companies
 
 Total: 30 Days Project
@@ -103,11 +102,18 @@ Posts should be professionally design but we can skip this one with AI.
 Professional logo + banner
 Complete website - No broken UI or functionality
 
+================== FEATURE 2 =======================
+
+
 JD to resume matcher will have pref section also
+
+================== FEATURE 2 =======================
+
+
 
 Later Features After Launch
 
-Feature 4: generate resume based on jd + uploaded jd.
+Feature 4: generate resume based on jd + uploaded cv.
 Feature 5: Manual resume check
 Feature 6: Froud company list
 Feature 7: Spreedsheets Tracking each application.
