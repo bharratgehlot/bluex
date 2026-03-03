@@ -65,8 +65,8 @@ react-pdf v10
 
 14. Sunday
 
-15. Day 5 (02-03-26) - Morning - 2 hours - resume to JD matcher (feature 2)
-16. Day 5 (03-03-26) - expected - resume to JD matcher
+15. Day 5 (02-03-26) - Morning - 3 hours - resume to JD matcher (feature 2)
+16. Day 5 (03-03-26) - Morning - 1 hours - resume to JD matcher (feature 2)
 17. Day 5 (04-03-26) - expected - resume to JD matcher
 18. Day 6 (05-03-26) - expected - payment integration (part of system)
 19. Day 6 (06-03-26) - expected - premium workflow (part of system)

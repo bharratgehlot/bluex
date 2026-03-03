@@ -19,11 +19,6 @@ export default function JdInput(){
         placeholder="Paste full job description here..."
         rows={10}
       />
-
-      <button className={styles.button}>
-        Analyze Match
-      </button>
-
     </div>
 
   )

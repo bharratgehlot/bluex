@@ -1,14 +1,13 @@
 /**
  * src/review/page.tsx
-   /review → Feature 1 (Resume Review Engine) (Isolated)
- * This page owns - navigation, high level flow control and review.
+ * /review → Feature 1 (Resume Review Engine) (Isolated)
+ * This page owns - navigation, high level flow control and review & Submission.
  * This page do not handle file parsing, upload limit logic and pdf validation
  * This page acts as feature 1 orchestrator.
  * This page handle Convert PDF to base64 format.
- * It also handle upload flow, base64 converison, API call, view switching, state
+ * It also handle upload flow, base64 converison, API trigger, view switching, state
  * Constraints: PDF only, max 3 mb, daily limit 7, 
  */
-
 
 "use client";
 
@@ -17,18 +16,31 @@ import { useState } from "react";
 import { canUpload, incrementUpload } from "@/lib/storage/uploadLimit";
 import ReviewPage from "@/components/review/ReviewPage";
 import LoadingScreen from "@/components/common/LoadingScreen";
-
+import styles from './page.module.css'
 
 export default function ReviewFeature() {
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  //const [base64Pdf, setBase64Pdf] = useState<string | null>(null);
-  const [view, setView ] = useState<"upload" | "review">("upload");
+  const [view, setView] = useState<"upload" | "review">("upload");
 
-  async function handleValidFile(file: File) {
+
+  /* 🔹 Step 1 — File selection only */
+
+  function handleFileSelect(file: File) {
     setResponse(null);
+    setError(null);
+
+    /** Store file in page level state */
+    setSelectedFile(file);
+  }
+
+  /* 🔹 Step 2 — Submission */
+
+  async function handleSubmit() {
+    if (!selectedFile) return;
+
     setError(null);
 
     /** Upload limit check */
@@ -38,19 +50,13 @@ export default function ReviewFeature() {
       return;
     }
 
-    /** Store file in page level state */
-
-    setSelectedFile(file);
-
-
     let base64: string;
-
 
     /** convert to base64 */
 
     try {
-      
-      base64 = await convertToBase64(file);
+
+      base64 = await convertToBase64(selectedFile);
 
       console.log("Base64 length:", base64.length);
 
@@ -59,14 +65,13 @@ export default function ReviewFeature() {
         return;
       }
 
-      //setBase64Pdf(base64);
 
     } catch (err) {
       setError("Failed to convert file");
       return;
     }
 
-/** TEMP function - send base 64 to backend */
+    /** send base 64 to backend */
 
     try {
       setLoading(true);
@@ -76,14 +81,14 @@ export default function ReviewFeature() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({base64Pdf: base64,
+        body: JSON.stringify({
+          base64Pdf: base64,
         }),
       });
 
       if (!res.ok) {
         throw new Error("API failed");
       }
-
 
       const data = await res.json();
 
@@ -93,23 +98,25 @@ export default function ReviewFeature() {
       }
 
       setResponse(data.data);
-      setView("review")
 
       /** Increment only after allowed */
 
       incrementUpload();
 
-      console.log("File approved for processing:", file.name);
+      setView("review")
+
+      console.log("File approved for processing:", selectedFile.name);
 
     } catch (err) {
       setError("Error to process resume")
     } finally {
       setLoading(false);
     }
-
   }
 
+
   /** Function 3 - Helper function to convert pdf to base64 */
+  /** later we can move this to seperate file or worker for performance  */
 
   function convertToBase64(file: File): Promise<string> {
     return new Promise((resolve, reject) => {
@@ -131,20 +138,29 @@ export default function ReviewFeature() {
 
   return (
     <main style={{ padding: "20px" }}>
-     
+
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       {loading && <LoadingScreen />}
 
-     
+
 
       {view === "upload" && !loading && (
         <>
           <ResumeUpload
-            onValidFile={handleValidFile}
-            isLoading={loading}
-          />
+            onValidFile={handleFileSelect} />
+
+          {/* Always visible button */}
+
+          <button
+            onClick={handleSubmit}
+            disabled={!selectedFile}
+            className={styles.submit_btn}
+
+          >
+            AUDIT MY RESUME
+          </button>
 
           {selectedFile && (
             <p style={{ marginTop: "10px", color: "green" }}>

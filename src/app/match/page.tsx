@@ -22,13 +22,30 @@
 
 import JdInput from "@/components/match/JdInput";
 import ResumeUpload from "@/components/upload/ResumeUpload";
+import LoadingScreen from "@/components/common/LoadingScreen";
+import styles from './page.module.css'
+
 
 export default function MatchFeature() {
+
+  /* 🔹 Step 1 — File selection only */
+
+  function handleFileSelect(file: File) {
+   
+  }
+
+
   return (
     <main style={{ padding: "40px" }}>
   
+      <ResumeUpload onValidFile={handleFileSelect} />
       <JdInput />
-      
+    
+     
+      <button className={styles.button}>
+        Analyze Match
+      </button>
+
     </main>
   );
 }

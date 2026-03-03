@@ -3,7 +3,7 @@
  * Owns - file selection, pdf validation, triggering extraction, passing cleaned data upward.
  * We are going to send this file upword to root page using onValidfile
  * Primary Job: Validate file, Store file locally (UI state), Show file name, Enable button
- * Total 3 states
+ * Submission && onLoading logic moved to parent page review/page.tsx
  */
 
 "use client"
@@ -16,12 +16,11 @@ import styles from "./ResumeUpload.module.css"
 
 interface ResumeUploadProps {
   onValidFile: (file: File) => void;
-  isLoading: boolean;
 }
 
 /** Default function */
 
-export default function ResumeUpload({ onValidFile, isLoading }: ResumeUploadProps) {
+export default function ResumeUpload({ onValidFile, /*isLoading*/ }: ResumeUploadProps) {
   const [error, setError] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
@@ -51,14 +50,12 @@ export default function ResumeUpload({ onValidFile, isLoading }: ResumeUploadPro
     setError(null);
     setSelectedFile(file); // File metadata stored locally
 
+    /** Emit valid file upward immediately */
+    
+    onValidFile(file);
+
   }
 
-  function handleSubmit() {
-    if (!selectedFile) return;
-
-    /** Pass upward when button clicks */
-    onValidFile(selectedFile);
-  }
 
 
   return (
@@ -72,14 +69,6 @@ export default function ResumeUpload({ onValidFile, isLoading }: ResumeUploadPro
         accept="application/pdf"
         onChange={handleFileChange}
       />
-
-      <button
-        className={styles.submit_btn}
-        onClick={handleSubmit}
-        disabled={!selectedFile || isLoading}
-      >
-        {isLoading ? "Analyzing..." : "AUDIT MY RESUME"}
-      </button>
 
 
       {selectedFile && (
