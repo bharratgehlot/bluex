@@ -1,6 +1,5 @@
 /**
  * src/components/review/ReviewPage.tsx
- * Use local UI state to simulate navigation.
  * Review page that shows => Uploaded resume preview + response from ai + two buttons
  */
 

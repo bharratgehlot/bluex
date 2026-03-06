@@ -67,12 +67,14 @@ react-pdf v10
 
 15. Day 5 (02-03-26) - Morning - 3 hours - resume to JD matcher (feature 2)
 16. Day 5 (03-03-26) - Morning - 1 hours - resume to JD matcher (feature 2)
-17. Day 5 (04-03-26) - expected - resume to JD matcher
-18. Day 6 (05-03-26) - expected - payment integration (part of system)
-19. Day 6 (06-03-26) - expected - premium workflow (part of system)
-20. Day 6 (07-03-26) - expected - thin content update & final testing
-21. Day 7 (08-03-26) - expected - deployement And Launch
-
+17. Day 5 (04-03-26) - break
+18. Day 6 (05-03-26) - break
+19. Day 6 (06-03-26) - 2.5 hours - resume to JD matcher (feature 2)
+20. Day 6 (07-03-26) - expected - resume to JD matcher
+21. Day 7 (08-03-26) - expected - payment integration (part of system)
+next day: premium workflow (part of system)
+next day: thin content update & final testing
+next day: deployement And Launch
 
 ==================FIRST ITERATION (9-15 March) =======================
 

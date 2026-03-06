@@ -24,6 +24,8 @@ export class GeminiProvider implements AIProvider {
     });
   }
 
+  /** * Feature 1 — Resume Review */
+
   async generateReview(base64Pdf: string): Promise<string> {
 
     if (!base64Pdf) {
@@ -88,4 +90,72 @@ export class GeminiProvider implements AIProvider {
     const response = await result.response;
     return response.text() ?? "";
   }
+
+
+  /** * Feature 1 — ENDS */
+
+  /** Feature 2 — Resume ↔ Job Description Match */
+
+  async generateMatch(base64Pdf: string, jdText: string): Promise<string> {
+    if (!base64Pdf || !jdText) {
+      throw new Error("Missing resume or job description");
+    }
+
+    const result = await this.model.generateContent([
+      {
+        inlineData: {
+          mimeType: "application/pdf",
+          data: base64Pdf,
+        },
+      },
+      {
+        text: `
+You are an AI recruiter assistant.
+
+Compare the attached resume with the following Job Description.
+
+JOB DESCRIPTION:
+${jdText}
+
+Analyze the alignment between the resume and the job description.
+
+Rules:
+- Return STRICT JSON only
+- Do NOT include markdown
+- Do NOT include explanations
+- Do NOT include null values
+- Always include all fields
+- Use integers for matchScore
+- Do not include extra keys
+
+Return exactly:
+
+{
+  "matchScore": number,
+  "summary": string,
+  "matchedKeywords": string[],
+  "missingKeywords": string[],
+  "recommendations": string[]
+}
+
+If the document is invalid or analysis fails return:
+
+{
+  "matchScore": 0,
+  "summary": "Unable to analyze the resume against the job description.",
+  "matchedKeywords": [],
+  "missingKeywords": [],
+  "recommendations": ["Please try again with a valid resume and job description."]
+}
+`,
+      },
+    ]);
+
+    const response = await result.response;
+    return response.text() ?? "";
+  }
+
+  /** Feature 2 — ENDS */
+
+
 }

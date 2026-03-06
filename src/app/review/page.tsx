@@ -6,7 +6,7 @@
  * This page acts as feature 1 orchestrator.
  * This page handle Convert PDF to base64 format.
  * It also handle upload flow, base64 converison, API trigger, view switching, state
- * Constraints: PDF only, max 3 mb, daily limit 7, 
+ * Constraints: PDF only, max 3 mb, daily limit 7.
  */
 
 "use client";
@@ -19,14 +19,17 @@ import LoadingScreen from "@/components/common/LoadingScreen";
 import styles from './page.module.css'
 
 export default function ReviewFeature() {
+
+  /** STATES */
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
+
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [view, setView] = useState<"upload" | "review">("upload");
 
 
-  /* 🔹 Step 1 — File selection only */
+  /* Step 1 — File selection */
 
   function handleFileSelect(file: File) {
     setResponse(null);
@@ -36,7 +39,7 @@ export default function ReviewFeature() {
     setSelectedFile(file);
   }
 
-  /* 🔹 Step 2 — Submission */
+  /* Step 2 — Submission */
 
   async function handleSubmit() {
     if (!selectedFile) return;
@@ -57,7 +60,6 @@ export default function ReviewFeature() {
     try {
 
       base64 = await convertToBase64(selectedFile);
-
       console.log("Base64 length:", base64.length);
 
       if (base64.length > 5_000_000) {
@@ -75,6 +77,7 @@ export default function ReviewFeature() {
 
     try {
       setLoading(true);
+      console.log("File approved for processing:", selectedFile.name);
 
       const res = await fetch("/api/generate-review", {
         method: "POST",
@@ -86,16 +89,31 @@ export default function ReviewFeature() {
         }),
       });
 
+      /** Parse the data first so we don't lose the backend's specific error messages */
+      const data = await res.json();
+
+      console.log("File is being processed:", selectedFile.name);
+
+      /** Check both standard HTTP errors AND your custom success flag */
+
+      /*
       if (!res.ok) {
         throw new Error("API failed");
       }
-
-      const data = await res.json();
-
+        
       if (!data.success) {
         setError(data.error || "AI processing failed");
         return;
       }
+
+      
+      */
+
+      if (!res.ok || !data.success) {
+        setError(data.error || "AI processing failed.");
+        return;
+      }
+
 
       setResponse(data.data);
 
@@ -105,17 +123,18 @@ export default function ReviewFeature() {
 
       setView("review")
 
-      console.log("File approved for processing:", selectedFile.name);
+      console.log("File processed successfully:", selectedFile.name);
 
     } catch (err) {
       setError("Error to process resume")
+      console.error(err);
     } finally {
       setLoading(false);
     }
   }
 
 
-  /** Function 3 - Helper function to convert pdf to base64 */
+  /** Step 3 - Helper function to convert pdf to base64 */
   /** later we can move this to seperate file or worker for performance  */
 
   function convertToBase64(file: File): Promise<string> {
@@ -132,7 +151,7 @@ export default function ReviewFeature() {
 
         resolve(base64);
       }
-      reader.onerror = (error) => reject(error);
+      reader.onerror = reject;
     });
   }
 
