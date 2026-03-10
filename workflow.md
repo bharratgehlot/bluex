@@ -18,21 +18,21 @@
 
 14. Sunday  - Output (8 hours)
 
-15. Day 5 (02-03-26) - Morning - 3 hours - resume to JD matcher (feature 2)
-16. Day 5 (03-03-26) - Morning - 1 hours - resume to JD matcher (feature 2)
-17. Day 5 (04-03-26) - break
-18. Day 6 (05-03-26) - break
-18. Day 6 (06-03-26) - Morning - 2.5 hours - resume to JD matcher (feature 2)
-19. Day 6 (07-03-26) - break
+15. Day 4 (02-03-26) - Morning - 3 hours - resume to JD matcher (feature 2)
+16. Day 4 (03-03-26) - Morning - 1 hours - resume to JD matcher (feature 2)
+17. Day 4 (04-03-26) - break
+18. Day 4 (05-03-26) - break
+18. Day 4 (06-03-26) - Morning - 2.5 hours - resume to JD matcher (feature 2)
+19. Day 4 (07-03-26) - break
 
 20. Sunday - Output (6.5 hours)
 
-21. Day 6 (09-03-26) - break
-22. Day 6 (10-03-26) - 
-23. Day 6 (11-03-26) - expected - resume to JD matcher
-24. Day 7 (12-03-26) - expected - payment integration (part of system)
-25. Day 7 (13-03-26) - expected - payment integration (part of system)
-26. Day 7 (14-03-26) - expected - payment integration (part of system)
+21. Day 4 (09-03-26) - break
+22. Day 4 (10-03-26) - 
+23. Day 4 (11-03-26) - expected - resume to JD matcher
+24. Day 5 (12-03-26) - expected - payment integration (part of system)
+25. Day 5 (13-03-26) - expected - payment integration (part of system)
+26. Day 5 (14-03-26) - expected - payment integration (part of system)
 
 27. Sunday  - Output (0 hours)
 
