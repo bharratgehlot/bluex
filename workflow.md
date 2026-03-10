@@ -28,14 +28,10 @@
 20. Sunday - Output (6.5 hours)
 
 21. Day 4 (09-03-26) - break
-22. Day 4 (10-03-26) - 
+22. Day 4 (10-03-26) - resume to JD matcher
 23. Day 4 (11-03-26) - expected - resume to JD matcher
-24. Day 5 (12-03-26) - expected - payment integration (part of system)
+24. Day 5 (12-03-26) - expected - premium workflow (part of system)
 25. Day 5 (13-03-26) - expected - payment integration (part of system)
-26. Day 5 (14-03-26) - expected - payment integration (part of system)
+26. Day 5 (14-03-26) - expected - thin content update & final testing (part of system)
 
-27. Sunday  - Output (0 hours)
-
-next day: premium workflow (part of system)
-next day: thin content update & final testing
-next day: deployement And Launch
+27. Sunday  - Output (0 hours) - deployement And Launch
