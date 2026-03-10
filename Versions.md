@@ -50,4 +50,4 @@ Blog (Premium Blogs) : List of top 100 froud companies
 
 Feature 6: generate resume based on jd + uploaded cv and personalized email.
 Feature 7: Spreedsheets Tracking each application.
-
+Export as PDF

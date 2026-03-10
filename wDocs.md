@@ -45,3 +45,7 @@ Vercel body limit = ~4.5MB by default.
 3️⃣ Keep Prompts Efficient
 
 react-pdf v10
+
+10/03/2026 
+
+git config core.ignorecase turned to false.

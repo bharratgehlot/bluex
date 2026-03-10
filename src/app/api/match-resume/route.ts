@@ -11,6 +11,8 @@
 
 import { GeminiProvider } from "@/lib/ai/providers/GeminiProvider";
 import { NextResponse } from "next/server";
+import { MatchAnalysis, MatchResponse } from "@/lib/types/match";
+
 
 /* Clamp score between 0-100 */
 
@@ -29,6 +31,33 @@ function extractJSON(text: string) {
   if (start === -1 || end === -1) return null;
 
   return text.slice(start, end + 1);
+}
+
+/** Filtering based on User type (FREE/PREMIUM) */
+
+function filterMatchResponse(data: MatchAnalysis, isPremium: boolean): MatchResponse {
+
+  if (isPremium) {
+    return {
+      matchScore: data.matchScore,
+      summary: data.summary,
+      matchedKeywords: data.matchedKeywords,
+      missingKeywords: data.missingKeywords,
+      recommendations: data.recommendations,
+    };
+  }
+
+  /** Free User Response - Free users NEVER receive premium data */
+  return {
+    matchScore: data.matchScore,
+    summary: data.summary,
+    matchedKeywords: data.matchedKeywords,
+
+    locked: {
+      missingKeywords: true,
+      recommendations: true,
+    },
+  };
 }
 
 export async function POST(req: Request) {
@@ -61,6 +90,8 @@ export async function POST(req: Request) {
       throw new Error("Invalid JSON structure from AI");
     }
 
+    /* JSON Parsing */
+
     let parsed;
 
     try {
@@ -73,9 +104,16 @@ export async function POST(req: Request) {
       throw new Error("Parsed AI response invalid");
     }
 
+    /* Temporary MVP premium detection */
+
+    const isPremium =
+      req.headers.get("x-premium-user") === "true";
+
+    /** later to be replaced with - Supabase premium_users lookup */
+
     /* Safe structured response */
 
-    const safeResponse = {
+    const safeResponse: MatchAnalysis = {
       matchScore: clampScore(parsed.matchScore),
       summary: typeof parsed.summary === "string" ? parsed.summary : "",
       matchedKeywords: Array.isArray(parsed.matchedKeywords)
@@ -89,9 +127,14 @@ export async function POST(req: Request) {
         : [],
     };
 
+    const filteredResponse = filterMatchResponse(
+      safeResponse,
+      isPremium
+    );
+
     return NextResponse.json({
       success: true,
-      data: safeResponse,
+      data: filteredResponse,
     });
 
   } catch (error) {

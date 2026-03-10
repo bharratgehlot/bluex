@@ -104,6 +104,7 @@ export default function MatchFeature() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "x-premium-user": "false" // test premium user
         },
         body: JSON.stringify({
           base64Pdf: base64,
