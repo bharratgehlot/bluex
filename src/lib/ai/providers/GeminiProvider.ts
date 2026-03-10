@@ -127,6 +127,7 @@ Rules:
 - Always include all fields
 - Use integers for matchScore
 - Do not include extra keys
+- Summary should also include candidate name from resume
 
 Return exactly:
 
