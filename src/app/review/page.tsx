@@ -156,7 +156,7 @@ export default function ReviewFeature() {
   }
 
   return (
-    <main style={{ padding: "20px" }}>
+    <main style={{ padding: "2px" }}>
 
 
       {error && <p style={{ color: "red" }}>{error}</p>}

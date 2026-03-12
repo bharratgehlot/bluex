@@ -1,6 +1,6 @@
-
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -10,39 +10,69 @@ body {
 ========================= */
 
 .submit_btn {
-  margin: 16px;
-  padding: 10px 20px;
+  margin: 22px auto;
+  padding: 12px 22px;
 
   font-size: 12px;
   font-weight: 600;
   color: #ffffff;
-
+  color: var(--color-bg-main);
+  background-color: var(--color-text-heading);
   background-color: rgba(31, 28, 28, 0.89);
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
 
   cursor: pointer;
   transition: all 0.3s ease;
 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .submit_btn:not(:disabled):hover {
-  background-color: #000000;
+  /* No need to change background color, the shadow and lift do the work perfectly */
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+  /* Soft, precise shadow */
 }
 
 .submit_btn:not(:disabled):active {
   transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.1);
 }
 
-/* Disabled State */
+/* =========================
+   Disabled State
+========================= */
 .submit_btn:disabled {
-  background-color: #cbd5e1;
-  color: #64748b;
+  background-color: #E2E8F0;
+  /* Soft border/disabled color */
+  color: #94A3B8;
+  /* Muted slate text */
   box-shadow: none;
   transform: none;
   cursor: not-allowed;
-  opacity: 0.7;
+  opacity: 0.8;
+}
+
+/* =========================
+   MOBILE (≤ 440px)
+========================= */
+@media(max-width: 440px) {
+  body {
+    /* Push content to the top on mobile so tall components don't get cut off at the top */
+    justify-content: flex-start;
+    padding: 16px;
+    padding-top: 40px;
+  }
+
+  .submit_btn {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    margin: 16px 0;
+  }
+
 }

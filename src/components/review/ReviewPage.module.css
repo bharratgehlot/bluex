@@ -3,17 +3,17 @@
 ========================= */
 
 .container {
-  border: solid 2px #000000; /*not visible*/
   max-width: 1200px;
   padding: 32px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  background-color: var(--color-bg-main);
+
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 
   display: flex;
   flex-direction: column;
   gap: 32px;
+  margin: 0 auto;
 }
 
 
@@ -23,11 +23,12 @@
 
 .title {
   font-size: 24px;
-  font-weight: 700;
-  color: #1e293b;
+  font-weight: 800;
+  /* Bolder to match our new heading style */
+  color: var(--color-text-heading);
   margin-bottom: 16px;
+  letter-spacing: -0.01em;
 }
-
 
 
 /* =========================
@@ -35,19 +36,17 @@
 ========================= */
 
 .previewBox {
-  padding: 16px;
-  border-radius: 6px;
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  
-
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
 }
 
 .fileName {
   font-size: 14px;
-  font-style: italic;
-  color: #64748b;
-
+  font-style: normal;
+  font-weight: 500;
+  color: var(--color-text-body);
 }
 
 /* =========================
@@ -58,8 +57,8 @@
 
 
 .reviewBox {
-  padding: 16px;
-  border-radius: 6px;
+  padding: 24px;
+  border-radius: 12px;
   background-color: #f8fafc;
   border: 1px solid #e2e8f0;
 }
@@ -79,26 +78,30 @@
 .scoreGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 12px;
+  gap: 16px;
   margin-top: 16px;
 }
 
 .scoreCard {
-  padding: 12px;
-  border-radius: 6px;
-  background-color: #f1f5f9;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: var(--color-bg-main);
+  border: 1px solid #E2E8F0;
   text-align: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 .scoreValue {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--color-text-heading);
 }
 
 .scoreLabel {
-  font-size: 12px;
-  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-body);
+  margin-top: 4px;
 }
 
 /* =========================
@@ -107,22 +110,28 @@
 
 .overallWrapper {
   text-align: center;
-  margin-top: 20px;
-  padding: 20px;
-  border-radius: 8px;
-  background: #f1f5f9;
+  margin-top: 24px;
+  padding: 32px 20px;
+  border-radius: 12px;
+  background-color: var(--color-bg-main);
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .overallScore {
-  font-size: 48px;
+  font-size: 52px;
   font-weight: 800;
-  margin-bottom: 10px;
+  color: var(--color-text-heading);
+  /* Use brand blue for main score */
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
 }
 
 .overallLabel {
-  font-size: 14px;
-  color: #64748b;
-  margin-top: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-body);
 }
 
 /* =========================
@@ -130,7 +139,7 @@
 ========================= */
 
 .progressBar {
-  margin-top: 8px;
+  margin-top: 12px;
   height: 8px;
   width: 100%;
   background-color: #e2e8f0;
@@ -140,37 +149,39 @@
 
 .progressFill {
   height: 100%;
-  transition: width 0.4s ease;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Score Colors */
-
+/* Score Colors (Updated to modern, vibrant standard colors) */
 .green {
-  background-color: #22c55e;
+  background-color: #10B981;
+  /* Tailwind Emerald 500 */
 }
 
 .yellow {
-  background-color: #facc15;
+  background-color: #F59E0B;
+  /* Tailwind Amber 500 */
 }
 
 .red {
-  background-color: #ef4444;
+  background-color: #EF4444;
+  /* Tailwind Red 500 */
 }
-
 
 /* =========================
    Lists
 ========================= */
 
 .list {
-  margin-top: 12px;
-  padding-left: 18px;
+  margin-top: 16px;
+  padding-left: 20px;
 }
 
 .list li {
-  margin-bottom: 6px;
-  font-size: 14px;
-  color: #334155;
+  margin-bottom: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-body);
 }
 
 
@@ -182,45 +193,42 @@
 .buttonBox {
   margin-top: 32px;
   display: flex;
-  gap: 12px;
+  gap: 16px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* Reuse similar button style */
 .button {
-  padding: 10px 20px;
-
-  font-size: 12px;
+  padding: 14px 28px;
+  font-size: 14px;
   font-weight: 600;
-  color: #ffffff;
-
-  background-color: rgba(31, 28, 28, 0.89);
+  color: var(--color-bg-main);
+  background-color: var(--color-text-heading);
   border: none;
-  border-radius: 4px;
-
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
-
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
 }
 
 .button:hover {
-  background-color: #000000;
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
 }
 
 .button.secondary {
-  background-color: #e2e8f0;
-  color: #0f172a;
+  background-color: #EFF6FF;
+  color: var(--color-primary);
 }
 
 .button.secondary:hover {
-  background-color: #cbd5e1;
+  background-color: #DBEAFE;
+  box-shadow: none;
+  /* Secondary buttons usually don't have hover shadows */
 }
 
 .viewerContainer {
-  margin-top: 16px;
+  margin-top: 20px;
   margin-bottom: 24px;
   display: flex;
   justify-content: center;
@@ -228,20 +236,36 @@
 
 .iframeContainer {
   margin-top: 24px;
-  border-top: 1px solid #ddd;
-  padding-top: 16px;
+  border-top: 1px solid #E2E8F0;
+  padding-top: 24px;
 }
 
 .viewerContainer canvas {
   max-width: 100%;
   height: auto !important;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0;
 }
 
 @media(max-width: 440px) {
 
 
   .container {
-    padding: 10px;
+    padding: 0px;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    gap: 16px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .previewBox,
+  .reviewBox {
+    padding: 16px;
+    border-radius: 8px;
   }
 
   .scoreGrid {
@@ -251,10 +275,50 @@
 
   .scoreCard {
     flex: 1;
+    padding: 12px;
+  }
+
+  .scoreValue {
+    font-size: 18px;
+  }
+
+  .overallWrapper {
+    padding: 20px 16px;
+  }
+
+  .overallScore {
+    font-size: 36px;
+  }
+
+  .list {
+    margin-top: 12px;
+    padding-left: 16px;
+  }
+
+  .list li {
+    margin-bottom: 4px;
+    font-size: 13px;
+    line-height: 1.5;
   }
 
   .pdfFrame {
     height: 55vh;
+  }
+
+  .buttonBox {
+    flex-direction: column;
+    margin-top: 16px;
+    align-items: center;
+    gap: 6px
+  }
+
+  .button {
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
   }
 
 }

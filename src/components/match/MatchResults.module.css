@@ -3,165 +3,273 @@
   margin: 0 auto;
   padding: 24px;
   border: 1px solid #e5e7eb;
+  background-color: var(--color-bg-main);
   border-radius: 10px;
-  background: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
+
 
 .title {
   font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
+  font-weight: 750;
+  color: var(--color-text-heading);
+  letter-spacing: -0.01em;
 
+  margin-bottom: 16px;
+}
 /* Score Box */
 .scoreBox {
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
+  background-color: #ECFDF5;
+  border: 1px solid #A7F3D0;
   border-radius: 8px;
   padding: 18px;
   margin-bottom: 24px;
 }
-
 .scoreBox h3 {
   margin: 0 0 8px 0;
-  color: #166534;
+  color: #065F46;
+  /* Tailwind Emerald 800 */
   font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .scoreBox p {
   margin: 0;
-  color: #15803d;
-  font-size: 14px;
+  color: #047857;
+  /* Tailwind Emerald 700 */
+  font-size: 15px;
+  font-weight: 400;
 }
-
-/* Sections */
+/* =========================
+   Sections & Lists
+========================= */
 .section {
-  margin-bottom: 22px;
+  /* margin-bottom handled by .wrapper gap, but keeping fallback */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .section h4 {
   font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 10px;
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin: 0;
 }
 
 .section ul {
   padding-left: 20px;
+  margin: 0;
 }
 
 .section li {
-  margin-bottom: 6px;
-  line-height: 1.5;
+  font-size: 15px;
+  color: var(--color-text-body);
+  line-height: 1.6;
+  margin-bottom: 8px;
 }
 
-/* Empty State */
+/* =========================
+   Empty & Debug States
+========================= */
 .empty {
-  font-size: 14px;
-  color: #6b7280;
+  font-size: 15px;
+  color: var(--color-text-muted);
+  font-style: normal;
 }
 
-/* Debug panel */
 .debug {
-  margin-top: 20px;
-  margin-bottom: 20px;
   font-size: 14px;
-  color: #6b7280;
+  color: var(--color-text-muted);
 }
 
 .debug pre {
-  background: #f3f4f6;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 6px;
+  background-color: var(--color-bg-alt);
+  /* Standard off-white */
+  border: 1px solid var(--color-border);
+  padding: 16px;
+  margin-top: 12px;
+  border-radius: 8px;
   overflow-x: auto;
   font-size: 13px;
+  color: var(--color-text-body);
 }
 
-/* Button */
+/* =========================
+   Standard Buttons
+========================= */
 .button {
-  padding: 10px 18px;
-  border-radius: 6px;
+  padding: 12px 24px;
+  border-radius: 8px;
   border: none;
-  background: #0f172a;
-  color: #ffffff;
+  background-color: var(--color-text-heading);
+  /* Dark Slate */
+  color: var(--color-bg-main);
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+  /* Prevents button from stretching full width */
 }
 
 .button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
 }
 
+/* =========================
+   Paywall & Blurring
+========================= */
 .blurBox {
   position: relative;
   filter: blur(6px);
   pointer-events: none;
+  user-select: none;
 }
 
 .paywall {
   position: absolute;
   inset: 0;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   background: rgba(255, 255, 255, 0.85);
+  /* Slightly frosty glass effect */
   filter: none;
   pointer-events: auto;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
 }
 
 .unlockButton {
-  margin-top: 10px;
-  padding: 8px 14px;
+  margin-top: 16px;
+  padding: 12px 24px;
   border: none;
-  background: #2563eb;
-  color: white;
-  border-radius: 6px;
+  background-color: var(--color-primary);
+  /* Primary Brand Blue */
+  color: var(--color-bg-main);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
   cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.unlockButton:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
 .scoreInsight {
-  margin-top: 8px;
-  font-weight: 500;
+  margin-top: 12px;
+  font-weight: 600;
+  color: var(--color-text-heading);
 }
 
 .scoreUpgrade {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #2563eb;
-  font-weight: 500;
+  margin-top: 8px;
+  font-size: 15px;
+  color: var(--color-primary);
+  font-weight: 600;
 }
 
 .lockHint {
   margin-top: 8px;
   font-size: 13px;
-  color: #6b7280;
+  color: var(--color-text-muted);
 }
 
+/* =========================
+   Sticky Upgrade Footer
+========================= */
+
+/*
 .stickyUpgrade {
   position: sticky;
   bottom: 0;
-  margin-top: 24px;
+  margin-top: 32px;
   z-index: 10;
+  padding-bottom: 24px;
+
 }
 
 .stickyContent {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 14px 18px;
-
-  background: #0f172a;
-  color: white;
-
-  border-radius: 10px;
+  padding: 16px 24px;
+  background-color: var(--color-text-heading);
+  color: var(--color-bg-main);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .stickyContent span {
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 15px;
+}
+*/
+
+/* =========================
+   MOBILE (≤ 440px)
+========================= */
+@media (max-width: 440px) {
+  .wrapper {
+    padding: 20px 16px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .scoreBox {
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  .scoreBox h3 {
+    font-size: 18px;
+  }
+
+  .section li {
+    font-size: 14px;
+  }
+
+  .button,
+  .unlockButton {
+    width: 100%;
+    /* Full width buttons on mobile */
+    align-self: center;
+  }
+
+/* 
+  .stickyUpgrade {
+    margin-top: 24px;
+    padding-bottom: 16px;
+  }
+
+  .stickyContent {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    text-align: center;
+    border-radius: 12px;
+    margin: 0 16px;
+  }
+
+  .stickyContent button {
+    width: 100%;
+  }
+    */
 }

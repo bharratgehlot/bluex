@@ -15,12 +15,14 @@
 
 .navbar {
   width: 100%;
-  padding: 24px 32px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 20px 32px;
+  background-color: var(--color-bg-main);
+  border-bottom: 1px solid #E2E8F0;
+  /* Clean, light divider */
 }
 
 .navInner {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -28,20 +30,28 @@
 }
 
 .logo {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 750;
+  color: var(--color-text-heading);
+  letter-spacing: -0.5px;
 }
 
 .navLinks {
   display: flex;
-  gap: 24px;
+  gap: 32px;
 }
 
 .navLinks a {
-  text-decoration: none;
-  color: #1e293b;
-  font-weight: 500;
-  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: var(--color-text-body);
+  transition: color 0.2s ease;
+}
+
+.navLinks a:hover {
+  color: var(--color-text-heading);
 }
 
 /* =========================
@@ -49,26 +59,28 @@
 ========================= */
 
 .hero {
-  padding: 140px 24px 120px;
-  border-top: none;
+  padding: 120px 24px 100px;
+  background-color: var(--color-bg-main);
 }
 
 .heroInner {
-  max-width: 900px;
+  max-width: 850px;
   margin: 0 auto;
   text-align: center;
 }
 
 .heroTitle {
-  font-size: 44px;
-  font-weight: 700;
+  font-size: 45px;
+  font-weight: 750;
+  color: var(--color-text-heading);
   line-height: 1.2;
 }
 
 .subtitle {
   font-size: 18px;
-  margin-top: 18px;
-  color: #475569;
+  margin-top: 20px;
+  color: var(--color-text-body);
+  line-height: 1.6;
 }
 
 /* =========================
@@ -79,32 +91,39 @@
   margin-top: 40px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
 .primaryBtn {
-  padding: 14px 26px;
-  background: #0f172a;
-  color: white;
-  text-decoration: none;
+  padding: 12px 26px;
+  background-color: var(--color-text-heading);
+  color: var(--color-bg-main);
   border-radius: 8px;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 16px;
   transition: all 0.2s ease;
 }
 
 .primaryBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+  /* Softer, precise shadow */
 }
 
 .secondaryBtn {
-  padding: 14px 26px;
-  border: 1px solid #0f172a;
-  color: #0f172a;
-  text-decoration: none;
+  padding: 14px 28px;
+  background-color: #EFF6FF;
+  /* Soft primary blue background */
+  color: var(--color-primary);
   border-radius: 8px;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.secondaryBtn:hover {
+  background-color: #DBEAFE;
 }
 
 /* =========================
@@ -113,7 +132,7 @@
 
 .section {
   padding: 100px 24px;
-  background-color: #f8fafc;
+  background-color: #F8FAFC;
   /* Slight contrast */
 }
 
@@ -124,41 +143,45 @@
 }
 
 .sectionTitle {
-  font-size: 32px;
-  font-weight: 600;
+  font-size: 36px;
+  font-weight: 750;
   line-height: 1.3;
+  color: var(--color-text-heading);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
 }
+
 .steps {
   margin-top: 36px;
   font-size: 16px;
-  line-height: 1.9;
-
+  line-height: 1.6;
+  color: var(--color-text-body);
   list-style: decimal;
-  padding-left: 1.5rem;
-  /* Proper indent */
+  padding-left: 24px;
   text-align: left;
-  /* Makes it look intentional */
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .steps li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
+
 /* =========================
    CTA SECTION
 ========================= */
 
 .ctaSection {
   padding: 100px 24px;
-  background-color: white;
+  background-color: var(--color-bg-main);
 }
+
 .ctaContent {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
 }
 
 /* =========================
@@ -166,15 +189,16 @@
 ========================= */
 .footer {
   margin-top: auto;
-  padding: 10px 24px 20px;
-  background-color: #0f172a;
-  /* dark slate */
-  color: #cbd5e1;
-  /* soft light text */
+  padding: 40px 24px;
+  background-color: #0F172A;
+    /* Deep dark slate */
+    color: #94A3B8;
+    /* Muted slate for text */
 }
 
 .footer .sectionInner {
   text-align: center;
+  max-width: 1200px;
 }
 
 .footer p {
@@ -185,7 +209,7 @@
 .footerContent {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 /* =========================
@@ -195,46 +219,54 @@
 @media (max-width: 440px) {
 
   .navbar {
-    padding: 18px 16px;
+    padding: 16px;
+  }
+
+  .logo{
+    font-size: 20px;
   }
 
   .navLinks {
-    gap: 14px;
-    font-size: 14px;
+    gap: 16px;
+  }
+
+  .navLinks a {
+    font-size: 12px;
   }
 
   .hero {
-    padding: 90px 16px 80px;
+    padding: 80px 16px 60px;
   }
 
   .heroTitle {
-    font-size: 30px;
+    font-size: 32px;
   }
 
   .subtitle {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .section {
-    padding: 70px 16px;
+    padding: 64px 16px;
   }
 
   .sectionTitle {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .steps {
-    font-size: 14px;
-    line-height: 1.8;
+    font-size: 15px;
+    
   }
 
   .ctaSection {
-    padding: 70px 16px;
+    padding: 64px 16px;
   }
 
   .ctaGroup {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
+    width: 100%;
   }
 
   .primaryBtn,
@@ -243,7 +275,8 @@
     text-align: center;
   }
 
-    .footer {
-      padding: 20px 16px 20px; }
+  .footer {
+    padding: 32px 16px;
+  }
 
 }

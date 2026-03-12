@@ -1,22 +1,83 @@
+/* =========================
+   Job Description Wrapper
+========================= */
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
+  margin-top: 20px;
+  /* Tighter, more cohesive gap between label and input */
   width: 100%;
 }
 
+/* =========================
+   Label
+========================= */
 .label {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
+  color: var(--color-text-heading);
+  /* Dark slate for high legibility */
+  letter-spacing: -0.01em;
 }
 
+/* =========================
+   Textarea Input
+========================= */
 .textarea {
   width: 100%;
   min-height: 200px;
-  padding: 12px;
-  font-size: 14px;
+  padding: 16px;
+  /* Roomier padding for a clean SaaS feel */
+  
+  font-family: var(--font-family-main);
+  /* Ensure it inherits the modern font */
+  font-size: 16px;
+  /* 16px prevents iOS auto-zoom on focus */
+  color: var(--color-text-body);
+  background-color: var(--color-bg-main);
+
+  border: 1px solid rgba(0, 0, 0, 0.267);
   border-radius: 8px;
-  border: 1px solid #d1d5db;
+  /* Standard input corner radius */
   resize: vertical;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  /* Extremely subtle inner depth */
 }
 
+/* Modern SaaS Focus State */
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  /* Bright blue border */
+  box-shadow: 0 0 0 3px #EFF6FF;
+  /* Soft blue glow (matches secondary button bg) */
+}
+
+/* Clean Placeholder Text */
+.textarea::placeholder {
+  color: var(--color-text-muted);
+  /* #94A3B8 from our design system */
+}
+
+/* =========================
+   MOBILE (≤ 440px)
+========================= */
+@media (max-width: 440px) {
+  .wrapper {
+    gap: 8px;
+    /* Tighter spacing on small screens */
+  }
+
+  .label {
+    font-size: 14px;
+    /* Scale down label */
+  }
+
+  .textarea {
+    padding: 12px;
+    min-height: 160px;
+    /* Shorter on mobile to leave room for the submit button / keyboard */
+  }
+}

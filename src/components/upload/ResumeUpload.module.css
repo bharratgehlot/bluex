@@ -4,12 +4,15 @@
 
 .container {
   max-width: 500px;
-  padding: 32px;
+  margin: 0 auto;
+  background-color: #F8FAFC;
+  /* Ensures it stays centered */
+  padding: 24px;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+ 
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
 /* =========================
@@ -17,12 +20,14 @@
 ========================= */
 
 .title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 16px;
+  font-size: 20px;
+  /* Reduced from 24px to match our new scale */
+  font-weight: 750;
+  /* Bolder heading */
+  color: var(--color-text-heading);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
 }
-
 /* =========================
    Input Wrapper
 ========================= */
@@ -37,8 +42,10 @@
 
 .fileName {
   font-size: 14px;
-  font-style: italic;
-  color: #64748b;
+  font-style: normal;
+  /* Removed italic for a cleaner SaaS look */
+  font-weight: 500;
+  color: var(--color-text-body);
   margin-top: 8px;
 }
 
@@ -47,9 +54,38 @@
 ========================= */
 
 .error {
-  font-size: 14px;
+  font-size: 13px;
+  /* Slightly scaled down */
   font-weight: 500;
-  color: #ef4444;
-
+  color: #EF4444;
+  /* Standard Tailwind Red-500 */
   margin-top: 8px;
+}
+
+/* =========================
+   MOBILE (≤ 440px)
+========================= */
+@media(max-width: 440px) {
+  .container {
+    padding: 24px 16px;
+    /* Kept some padding since this is a small form box, not a full page wrapper */
+    border-radius: 12px;
+    /* Slightly tighter corners on mobile */
+    /* If you prefer this to go completely edge-to-edge like the previous container, 
+       you can change border to 'none' and padding to '16px 0'. */
+  }
+
+  .title {
+    font-size: 18px;
+    /* Mobile font scale */
+    margin-bottom: 8px;
+  }
+
+  .fileName {
+    font-size: 13px;
+  }
+
+  .error {
+    font-size: 12px;
+  }
 }

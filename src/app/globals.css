@@ -1,14 +1,31 @@
 /* =========================
+   Design System Variables
+========================= */
+
+:root {
+  /* Colors */
+  --color-primary: #2563EB;
+  /* Main brand blue */
+  --color-bg-main: #FFFFFF;
+  /* Clean white background */
+  --color-text-heading: #0F172A;
+  /* Dark slate for headers */
+  --color-text-body: #475569;
+  /* Muted slate for reading text */
+
+  /* Typography */
+  --font-family-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+
+/* =========================
    Reset
 ========================= */
 
 * {
-  box-sizing: border-box;
-  /* ✅ Affects ALL elements */
-  margin: 0;
-  /* ✅ Removes default margins */
-  padding: 0;
-  /* ✅ Removes default padding */
+  box-sizing: border-box; /* ✅ Affects ALL elements */
+  margin: 0; /* ✅ Removes default margins */
+  padding: 0; /* ✅ Removes default padding */
 }
 
 /* =========================
@@ -16,27 +33,39 @@
 ========================= */
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-family-main);
   /* ✅ Inherited */
   font-size: 16px;
   /* ✅ Inherited */
-  line-height: 24px;
+  line-height: 1.5;
   /* ✅ Inherited */
-  color: #1e293b;
+  color: var(--color-text-body);
   /* ✅ Inherited */
 
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  /* ❌ Not inherited */
+  background-color: var(--color-bg-main);  /* ❌ Not inherited */
   min-height: 100vh;
   /* ❌ Not inherited */
 
-  /*
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  */
-  -webkit-font-smoothing: antialiased;
-
-  border: 2px solid red;
+  /* Crisp font rendering for modern SaaS look */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
+/* =========================
+   Typography Defaults
+========================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
