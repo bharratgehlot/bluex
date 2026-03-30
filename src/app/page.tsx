@@ -18,7 +18,7 @@ export default function Home() {
       <header className={styles.navbar}>
         <div className={styles.navInner}>
           
-          <h2 className={styles.logo}>BlueX</h2>
+          <h2 className={styles.logo}>ResumeDaddy</h2>
 
           <nav className={styles.navLinks}>
             <Link href="/review">Review</Link>
