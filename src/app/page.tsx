@@ -15,11 +15,20 @@ export default function Home() {
     <main className={styles.pageWrapper}>
 
       {/* NAVBAR */}
-      <header className={styles.navbar}>
-        <div className={styles.navInner}>
+      <header className={styles.header}>
+        <div className={styles.navBar}>
           
-          <h2 className={styles.logo}>ResumeDaddy</h2>
 
+          <Link href="/" className={styles.logoContainer}>
+            <img
+              src="logo1_big.png"
+              alt="ResumeDaddy Icon"
+              className={styles.logoIcon}
+            />
+            <h2 className={styles.logoText}>resume<span className={styles.accent}>Daddy</span></h2>
+          </Link>
+          
+      
           <nav className={styles.navLinks}>
             <Link href="/review">Review</Link>
             <Link href="/match">JD Match</Link>
@@ -87,10 +96,21 @@ export default function Home() {
       {/* FOOTER */}
       <footer className={styles.footer}>
         <div className={styles.sectionInner}>
-          <div className={styles.footerContent}>
-            <p>© {new Date().getFullYear()} BlueX</p>
-            <p>AI Resume Optimization Platform</p>
+          <div className={styles.footerBrand}>
+
+            <img src="logo1_big.png" alt="ResumeDaddy Icon" className={styles.footerIcon} />
+            <p><strong>ResumeDaddy</strong> © 2026</p>
+
           </div>
+
+
+          <nav className={styles.footerLinks}>
+            <Link href="/about">About</Link>
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms</Link>
+            <Link href="/contact">Contact</Link>
+          </nav>
+
         </div>
       </footer>
 
