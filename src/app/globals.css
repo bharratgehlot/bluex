@@ -4,28 +4,21 @@
 
 :root {
   /* Colors */
-  --color-primary: #2563EB;
-  /* Main brand blue */
-  --color-bg-main: #FFFFFF;
-  /* Clean white background */
-  --color-text-heading: #0F172A;
-  /* Dark slate for headers */
-  --color-text-body: #475569;
-  /* Muted slate for reading text */
-
-  /* Typography */
-  --font-family-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --color-primary: #2563EB; /* Main brand blue */
+  --color-bg-main: #FFFFFF; /* Clean white background */
+  --color-text-heading: #0F172A; /* Dark slate for headers */
+  --color-text-body: #475569; /* Muted slate for reading text */
+  --font-family-main: 'Inter', system-ui, -apple-system, sans-serif; /* Typography */
 }
-
 
 /* =========================
    Reset
 ========================= */
 
 * {
-  box-sizing: border-box; /* ✅ Affects ALL elements */
-  margin: 0; /* ✅ Removes default margins */
-  padding: 0; /* ✅ Removes default padding */
+  box-sizing: border-box; /* Global reset for each element */
+  margin: 0; /* Removes default margins */
+  padding: 0; /* Removes default padding */
 }
 
 /* =========================
@@ -34,17 +27,11 @@
 
 body {
   font-family: var(--font-family-main);
-  /* ✅ Inherited */
   font-size: 16px;
-  /* ✅ Inherited */
   line-height: 1.5;
-  /* ✅ Inherited */
   color: var(--color-text-body);
-  /* ✅ Inherited */
-
-  background-color: var(--color-bg-main);  /* ❌ Not inherited */
+  background-color: var(--color-bg-main);  
   min-height: 100vh;
-  /* ❌ Not inherited */
 
   /* Crisp font rendering for modern SaaS look */
     -webkit-font-smoothing: antialiased;

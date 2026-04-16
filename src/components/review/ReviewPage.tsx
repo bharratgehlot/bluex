@@ -63,7 +63,7 @@ export default function ReviewPage({ reviewData, fileName, file, onBack }: Revie
       {/* ================= 2. Review Box ================= */}
 
       <div className={styles.reviewBox}> 
-        <h2 className={styles.title}>What AI says</h2>
+        <h2 className={styles.title}>What resumeDaddy says</h2>
 
         {/* ===== Overall Score Highlight ===== */}
         <div className={styles.overallWrapper}>

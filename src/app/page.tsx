@@ -9,8 +9,19 @@
 
 import Link from "next/link";
 import styles from './page.module.css'
+import { useState } from "react";
 
 export default function Home() {
+
+  const [activeFaq, setActiveFaq] = useState<number | null>(0);
+
+  const faqData = [
+    { q: "How accurate is the AI feedback?", a: "BlueX uses Gemini 2.5 Flash to analyze your resume against industry-standard ATS patterns. While highly accurate for formatting and keywords, we recommend a final human review for personal tone." },
+    { q: "Is my resume data kept private?", a: "Absolutely. Your uploads are processed securely and are never used to train public models. Data is encrypted and deleted after your session unless you choose to save it." },
+    { q: "Can I match my resume to a specific job?", a: "Yes! Our 'JD Matcher' feature allows you to paste a specific Job Description to see exactly which keywords and skills you are currently missing." }
+  ];
+
+
   return (
     <main className={styles.pageWrapper}>
 
@@ -22,7 +33,7 @@ export default function Home() {
           <Link href="/" className={styles.logoContainer}>
             <img
               src="logo1_big.png"
-              alt="ResumeDaddy Icon"
+              alt="resumeDaddy Icon"
               className={styles.logoIcon}
             />
             <h2 className={styles.logoText}>resume<span className={styles.accent}>Daddy</span></h2>
@@ -76,6 +87,39 @@ export default function Home() {
       </section>
 
 
+      {/* FAQ SECTION */}
+      
+      <section className={styles.section}>
+        <div className={styles.sectionInner}>
+          <div className={styles.faqHeader}>
+            <span className={styles.supportLabel}>Support</span>
+            <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
+          </div>
+
+          <div className={styles.accordionContainer}>
+            {faqData.map((item, index) => (
+              <div
+                key={index}
+                className={`${styles.accordionItem} ${activeFaq === index ? styles.active : ''}`}
+              >
+                <button
+                  className={styles.accordionQuestion}
+                  onClick={() => setActiveFaq(activeFaq === index ? null : index)}
+                >
+                  <span>{item.q}</span>
+                  <svg width="16" height="10" viewBox="0 0 16 10" fill="none" className={styles.chevron}>
+                    <path d="M1 1.5L8 8.5L15 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                <div className={styles.accordionAnswer}>
+                  <p>{item.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* FINAL CTA */}
       <section className={styles.ctaSection}>
@@ -98,8 +142,8 @@ export default function Home() {
         <div className={styles.sectionInner}>
           <div className={styles.footerBrand}>
 
-            <img src="logo1_big.png" alt="ResumeDaddy Icon" className={styles.footerIcon} />
-            <p><strong>ResumeDaddy</strong> © 2026</p>
+            <img src="logo1_big.png" alt="resumeDaddy Icon" className={styles.footerIcon} />
+            <p><strong>resumeDaddy</strong> © 2026</p>
 
           </div>
 

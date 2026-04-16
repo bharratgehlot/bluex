@@ -160,9 +160,9 @@
 ========================= */
 
 .section {
-  padding: 100px 24px;
+  padding: 80px 24px;
   background-color: #F8FAFC;
-  /* Slight contrast */
+  border: 2px solid red;
 }
 
 .sectionInner {
@@ -211,6 +211,78 @@
   flex-direction: column;
   align-items: center;
   gap: 24px;
+}
+
+/* =========================
+   FAQ SECTION
+========================= */
+
+.faqHeader {
+  text-align: center;
+  margin-bottom: 20px;
+  border: 2px solid red;
+}
+
+.supportLabel {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.accordionContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.accordionItem {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordionItem.active {
+  border-color: var(--color-primary);
+  background: #fff;
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1);
+}
+
+.accordionQuestion {
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  font-weight: 600;
+  color: var(--color-text-heading);
+  cursor: pointer;
+  text-align: left;
+}
+
+.accordionAnswer {
+  max-height: 0;
+  padding: 0 1.5rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.active .accordionAnswer {
+  max-height: 200px;
+  padding-bottom: 1.5rem;
+  opacity: 1;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+}
+
+.active .chevron {
+  transform: rotate(180deg);
+  color: var(--color-primary);
 }
 
 /* =========================
@@ -274,6 +346,8 @@
 .footerLinks a:hover {
   color: #F8FAFC;
 }
+
+
 
 /* =========================
    MOBILE (≤ 440px)

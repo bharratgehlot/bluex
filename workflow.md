@@ -31,13 +31,13 @@
 22. Day 4 (10-03-26) - Morning - 3 hours - resume to JD matcher
 23. Day 4 (11-03-26) - break
 24. Day 4 (12-03-26) - Morning - 3 hours - Design fixes
-25. Day 5 (13-03-26) - break - premium workflow (part of system) - break
-26. Day 5 (14-03-26) - break - payment integration (part of system) - break
-27. Day 5 (15-03-26) - break - thin content update & final testing (part of system)
+25. Day 5 (13-03-26) - break -
+26. Day 5 (14-03-26) - break -
+27. Day 5 (15-03-26) - break - 
 
-28. Sunday  - Output (6 hours) - deployement And Launch
+28. Sunday  - Output (6 hours) - 
 
-29. (16-03-26) - break
+29. (11-04-26) - Header footer fixed - 2 hours
 30. (17-03-26) - break
 31. (18-03-26) - break
 32. (19-03-26) - break
@@ -58,3 +58,12 @@
 43. (28-03-26)
 44. (29-03-26)
 45. (30-03-26) - Final Deploy
+
+later work 
+
+
+ premium workflow (part of system) - break
+  payment integration (part of system) - break
+  thin content update & final testing (part of system)
+  thin content update & final testing (part of system)
+  deployement And Launch
