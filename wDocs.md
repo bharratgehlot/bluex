@@ -51,3 +51,9 @@ react-pdf v10
 git config core.ignorecase turned to false.
 users can also use AN PROMOCODE to active lifetime subscription.
 Will create generic toc and privacy policy beofore launch.
+
+ premium workflow (part of system) - break
+  payment integration (part of system) - break
+  thin content update & final testing (part of system)
+  thin content update & final testing (part of system)
+  deployement And Launch
