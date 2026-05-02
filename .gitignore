@@ -41,9 +41,4 @@ yarn-error.log*
 next-env.d.ts
 
 # extra files
-Design_System.md
-feature_2.md
-Versions.md
-wDocs.md
-workflow.md
-feature_2.md
+/development
